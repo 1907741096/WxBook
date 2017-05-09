@@ -1,9 +1,9 @@
 <view class="condition">
   <view class="search-top">
     <view class="search">
-      <image src="../../images/search.png"></image>
+      <image src="../../images/icon/search.png"></image>
       <input type="text" />
     </view>
-    <image src="../../images/scancode.png" class="scancode" catchtap="scancode"></image>
+    <image src="../../images/icon/scancode.png" class="scancode" catchtap="scancode"></image>
   </view>
 </view>

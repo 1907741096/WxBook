@@ -16,20 +16,20 @@
       {
         "pagePath": "pages/session/session",
         "text": "会话",
-        "iconPath": "images/session.png",
-        "selectedIconPath": "images/s-session.png"
+        "iconPath": "images/icon/session.png",
+        "selectedIconPath": "images/icon/s-session.png"
       },
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/book.png",
-        "selectedIconPath": "images/s-book.png"
+        "iconPath": "images/icon/book.png",
+        "selectedIconPath": "images/icon/s-book.png"
       },
       {
         "pagePath": "pages/search/search",
         "text": "搜索",
-        "iconPath": "images/search.png",
-        "selectedIconPath": "images/s-search.png"
+        "iconPath": "images/icon/search.png",
+        "selectedIconPath": "images/icon/s-search.png"
       }
     ]
   }

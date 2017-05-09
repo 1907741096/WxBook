@@ -4,22 +4,7 @@ Page({
     },
     onLoad: function (options) {
         //生命周期函数--监听页面加载
-        wx.request({
-            url: 'https://api.douban.com/v2/book/isbn/:' + res.result,
-            data: {},
-            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            header: { "Content-Type": "application/json" }, // 设置请求的 header
-            success: function (book) {
-                // success
-                console.log(book);
-            },
-            fail: function (res) {
-                // fail
-            },
-            complete: function (res) {
-                // complete
-            }
-        })
+        
     },
     onReady: function () {
         // 生命周期函数--监听页面初次渲染完成
