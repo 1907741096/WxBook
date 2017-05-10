@@ -1,3 +1,4 @@
+<import src="../template/template-list/template-list.wxml"/>
 <view class="condition">
   <swiper class="top-swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" catchtap="onSwiperTap">
     <swiper-item>
@@ -9,10 +10,76 @@
     <swiper-item>
       <image src="/images/c.jpg" data-title="白夜行" mode="widthFix"></image>
     </swiper-item>
-  </swiper>         
+  </swiper>
+  <view class="hot-tags">
+    <view class="xian"></view>
+    <view class="bq">热门标签</view>
+  </view>
   <view class="condition-tags">
     <view class="tags">
-      <view class="tag"></view>
+      <view class="tag-t">文学</view>
+      <view class="tag">小说</view>
+      <view class="tag">日本文学</view>
+      <view class="tag">散文</view>
+      <view class="tag">诗歌</view>
+      <view class="tag">童话</view>
+      <view class="tag">名著</view>
+      <view class="tag-g">更多</view>
     </view>
+    <view class="tags">
+      <view class="tag-t">科技</view>
+      <view class="tag">科普</view>
+      <view class="tag">互联网</view>
+      <view class="tag">编程</view>
+      <view class="tag">算法</view>
+      <view class="tag">通信</view>
+      <view class="tag">交互</view>
+      <view class="tag-g">更多</view>
+    </view>
+    <view class="tags">
+      <view class="tag-t">流行</view>
+      <view class="tag">推理</view>
+      <view class="tag">青春</view>
+      <view class="tag">言情</view>
+      <view class="tag">科幻</view>
+      <view class="tag">武侠</view>
+      <view class="tag">奇幻</view>
+      <view class="tag-g">更多</view>
+    </view>
+    <!--<view class="tags">
+      <view class="tag-t">文化</view>
+      <view class="tag">历史</view>
+      <view class="tag">哲学</view>
+      <view class="tag">传记</view>
+      <view class="tag">设计</view>
+      <view class="tag">建筑</view>
+      <view class="tag">回忆录</view>
+      <view class="tag-g">更多</view>
+    </view>
+    <view class="tags">
+      <view class="tag-t">生活</view>
+      <view class="tag">旅行</view>
+      <view class="tag">励志</view>
+      <view class="tag">职场</view>
+      <view class="tag">美食</view>
+      <view class="tag">教育</view>
+      <view class="tag">健康</view>
+      <view class="tag-g">更多</view>
+    </view>
+    <view class="tags">
+      <view class="tag-t">经管</view>
+      <view class="tag">经济学</view>
+      <view class="tag">管理</view>
+      <view class="tag">商业</view>
+      <view class="tag">金融</view>
+      <view class="tag">营销</view>
+      <view class="tag">理财</view>
+      <view class="tag-g">更多</view>
+    </view>-->
   </view>
+  <view class="hot-tags">
+    <view class="xian"></view>
+    <view class="bq">好书推荐</view>
+  </view>
+  <template is="bookListTemplate" data="{{books}}"></template>
 </view>

@@ -1,6 +1,25 @@
 Page({
     data: {
-
+      books:[
+        {
+          title:"达芬奇密码",
+          img:"../../images/a.jpg",
+          rating:"8.2",
+          stars:[1,1,1,0,0]
+        },
+        {
+          title: "解忧杂货店",
+          img: "../../images/b.jpg",
+          rating: "8.6",
+          stars: [1, 1, 1, 1, 0]
+        },
+        {
+          title: "白夜行",
+          img: "../../images/c.jpg",
+          rating: "9.1",
+          stars: [1, 1, 1, 1, 1]
+        }
+      ]
     },
     onLoad: function (options) {
         //生命周期函数--监听页面加载

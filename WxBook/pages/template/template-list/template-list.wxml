@@ -1,0 +1,19 @@
+<import src="../template-book/template-book.wxml" />
+<template name="bookListTemplate">
+  <view class="book-list-container">
+    <view class="inner-container">
+      <view class="book-head">
+        <text class="slogan">豆瓣top250</text>
+        <view class="more" catchtap="onMoreTap" data-category="豆瓣top250">
+          <text class="more-text">更多</text>
+          <image class="more-img" src="/images/icon/arrow-right.png"></image>
+        </view>
+      </view>
+      <view class="books-container">
+        <block wx:for="{{books}}" wx:for-item="book">
+          <template is="bookTemplate" data="{{...book}}"/>
+        </block>
+      </view>
+    </view>
+  </view>
+</template>

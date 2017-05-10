@@ -1,0 +1,8 @@
+<import src="../template-star/template-star.wxml"/>
+<template name="bookTemplate">
+    <view class="book-container" catchtap="onbookTap" data-booktitle="{{title}}">
+        <image src="{{img}}" class="book-img"></image>
+        <text class="book-title">{{title}}</text>
+        <template is="starTemplate" data="{{stars:stars,rating:rating}}"/>
+    </view>
+</template>

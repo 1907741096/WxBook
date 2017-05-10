@@ -1,0 +1,36 @@
+@import "../template-book/template-book.wxss";
+.book-list-container{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.inner-container{
+    margin: 0 auto 20rpx;
+}
+.book-head{
+    padding: 0 20rpx 22rpx;
+    /*display: flex;
+    flex-direction: row;
+    justify-content: space-between;*/
+}
+.slogan{
+    font-size: 24rpx;
+}
+.more{
+    float: right;
+}
+.more-text{
+    font-size: 24rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    color: #1f4ba5;
+}
+.more-img{
+    width: 9rpx;
+    height: 16rpx;
+    vertical-align: middle;
+}
+.books-container{
+    display: flex;
+    flex-direction: row;
+}

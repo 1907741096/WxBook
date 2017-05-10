@@ -1,0 +1,15 @@
+@import "../template-star/template-star.wxss";
+.book-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0 22rpx;
+}
+.book-img{
+    width: 200rpx;
+    height: 270rpx;
+    padding-bottom: 20rpx;
+}
+.book-title{
+    margin-bottom: 16rpx;
+    font-size: 24rpx;
+}
