@@ -17,6 +17,9 @@ Page({
     },
     onLoad: function (options) {
         //生命周期函数--监听页面加载
+      var url = app.globalData.http + "wxbook/api.php?c=Position&a=getPosition&id=1";
+      util.http(url, this.processBannerData, 'get');
+
       var url = app.globalData.http + "wxbook/api.php?c=Top250&a=getbook&start=0&count=10";
       util.http(url, this.processTop250Data, 'get');
 
@@ -76,6 +79,22 @@ Page({
       var url = event.currentTarget.dataset.url;
       wx.navigateTo({
         url: '../more/more?url=' + url,
+      });
+    },
+    processBannerData: function (data) {
+      if (!data) {
+        return;
+      }
+
+      for (var i = 0; i < data.length; i++) {
+        data[i]['star'] = util.convertToStarsArray(data[i]['rating'] / 2 + 0.5);
+        if (data[i]['title'].length > 6) {
+          data[i]['title'] = data[i]['title'].substring(0, 6) + "...";
+        }
+      }
+
+      this.setData({
+        banner: data
       });
     },
     processTop250Data: function (data) {

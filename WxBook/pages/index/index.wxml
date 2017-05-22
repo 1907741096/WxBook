@@ -1,15 +1,11 @@
 <import src="../template/template-list/template-list.wxml"/>
 <view class="condition">
   <swiper class="top-swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" catchtap="onSwiperTap">
+  <block wx:for="{{banner}}" wx:for-item="b">
     <swiper-item>
-      <image src="/images/a.jpg" data-title="达芬奇密码" mode="widthFix"></image>
+      <image src="{{b['image']}}" mode="widthFix" catchtap="onbookTap" data-bookid="{{b['bookid']}}"></image>
     </swiper-item>
-    <swiper-item>
-      <image src="/images/b.jpg" data-title="解忧杂货店" mode="widthFix"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/images/c.jpg" data-title="白夜行" mode="widthFix"></image>
-    </swiper-item>
+  </block>
   </swiper>
   <view class="hot-tags">
     <view class="xian"></view>
