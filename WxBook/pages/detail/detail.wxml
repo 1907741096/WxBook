@@ -1,0 +1,60 @@
+<import src="../template/template-star/template-star.wxml" />
+<import src="../template/template-book/template-book.wxml" />
+<view class="container">
+  <image class="head-img" src="{{book.image}}" mode="aspectFill" />
+  <view class="head-img-hover" data-src="{{book.image}}" catchtap="viewBookPostImg">
+    <text class="main-title">{{book.title}}</text>
+    <text class="sub-title">{{book.pubdate}} · {{book.publisher}}</text>
+    <view class="like">
+      <text class="plain-font">
+        页数
+      </text>
+      <text class="highlight-font">
+        {{book.pages}}
+      </text>
+      <text class="plain-font">
+        单价
+      </text>
+      <text class="highlight-font">
+        {{book.price}}
+      </text>
+    </view>
+  </view>
+  <image class="book-img-top" src="{{book.image}}" data-src="{{book.image}}" catchtap="viewBookPostImg"/>
+  <view class="summary">
+    <view class="original-title">
+      <text>{{book.title}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">评分</text>
+      <template is="starTemplate" data="{{stars:book.star, rating:book.rating}}" />
+    </view>
+    <view class="flex-row">
+      <text class="mark">作者</text>
+      <text>{{book.author}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">类型</text>
+      <text>{{book.tags}}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
+  <view class="synopsis">
+    <text class="synopsis-font">书籍简介</text>
+    <text class="summary-content">{{book.summary}}</text>
+  </view>
+  <view class="hr"></view>
+  <view class="synopsis">
+    <text class="synopsis-font">作者简介</text>
+    <text class="summary-content">{{book.author_intro}}</text>
+  </view>
+  <view class="hr"></view>
+  <view class="xgtj">相关推荐</view>
+  <scroll-view class="cast-imgs" scroll-x="true" style="width:100%">
+    <view class="books-container">
+      <block wx:for="{{others}}" wx:for-item="other">
+        <template is="bookTemplate" data="{{...other}}" />
+      </block>
+    </view>
+  </scroll-view>
+</view>

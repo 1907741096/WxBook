@@ -1,10 +1,11 @@
-@import "../template-book/template-book.wxss";
+@import "/pages/template/template-book/template-book.wxss";
 .book-list-container{
     background-color: #fff;
     display: flex;
     flex-direction: column;
 }
 .inner-container{
+    width: 100%;
     margin: 0 auto 20rpx;
 }
 .book-head{
@@ -14,7 +15,7 @@
     justify-content: space-between;*/
 }
 .slogan{
-    font-size: 24rpx;
+    font-size: 28rpx;
 }
 .more{
     float: right;

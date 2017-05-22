@@ -1,29 +1,31 @@
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
     data: {
-      books:[
-        {
-          title:"达芬奇密码",
-          img:"../../images/a.jpg",
-          rating:"8.2",
-          stars:[1,1,1,0,0]
-        },
-        {
-          title: "解忧杂货店",
-          img: "../../images/b.jpg",
-          rating: "8.6",
-          stars: [1, 1, 1, 1, 0]
-        },
-        {
-          title: "白夜行",
-          img: "../../images/c.jpg",
-          rating: "9.1",
-          stars: [1, 1, 1, 1, 1]
-        }
+      banner:[
+        
+      ],
+      top250:[
+
+      ],
+      newbook:[
+
+      ],
+      hotbook:[
+
       ]
     },
     onLoad: function (options) {
         //生命周期函数--监听页面加载
-        
+      var url = app.globalData.http + "wxbook/api.php?c=Top250&a=getbook&start=0&count=10";
+      util.http(url, this.processTop250Data, 'get');
+
+      var url = app.globalData.http + "wxbook/api.php?c=NewBook&a=getbook&start=0&count=10";
+      util.http(url, this.processNewBookData, 'get');
+
+      var url = app.globalData.http + "wxbook/api.php?c=HotBook&a=getbook&start=0&count=10";
+      util.http(url, this.processHotBookData, 'get');
+      
     },
     onReady: function () {
         // 生命周期函数--监听页面初次渲染完成
@@ -56,5 +58,89 @@ Page({
             desc: 'desc', // 分享描述
             path: 'path' // 分享路径
         }
+    },
+    ontagTap:function(event){
+      var url = 'Book'
+      var tag = event.target.dataset.tag;
+      wx.navigateTo({
+        url: '../more/more?url=' + url + '&tag=' + tag
+      });
+    },
+    onbookTap:function(event){
+      var id=event.currentTarget.dataset.bookid;
+      wx.navigateTo({
+        url: '../detail/detail?id='+id,
+      });
+    },
+    onMoreTap:function(event){
+      var url = event.currentTarget.dataset.url;
+      wx.navigateTo({
+        url: '../more/more?url=' + url,
+      });
+    },
+    processTop250Data: function (data) {
+      if (!data) {
+        return;
+      }
+
+      for(var i=0;i<data.length;i++){
+        data[i]['star'] = util.convertToStarsArray(data[i]['rating'] / 2 + 0.5);
+        if (data[i]['title'].length > 6) {
+          data[i]['title'] = data[i]['title'].substring(0, 6) + "...";
+        }
+      }
+      var books={
+        books:data,
+        name:'豆瓣top250',
+        url:'Top250'
+      }
+      
+      this.setData({
+        top250: books
+      });
+    },
+    processNewBookData: function (data) {
+      if (!data) {
+        return;
+      }
+
+      for (var i = 0; i < data.length; i++) {
+        data[i]['star'] = util.convertToStarsArray(data[i]['rating'] / 2 + 0.5);
+        if (data[i]['title'].length > 6) {
+          data[i]['title'] = data[i]['title'].substring(0, 6) + "...";
+        }
+      }
+
+      var books={
+        books:data,
+        name:'新书速递',
+        url:'NewBook'
+      }
+
+      this.setData({
+        newbook: books
+      });
+    },
+    processHotBookData: function (data) {
+      if (!data) {
+        return;
+      }
+
+      for (var i = 0; i < data.length; i++) {
+        data[i]['star'] = util.convertToStarsArray(data[i]['rating'] / 2 + 0.5);
+        if (data[i]['title'].length > 6) {
+          data[i]['title'] = data[i]['title'].substring(0, 6) + "...";
+        }
+      }
+
+      var books = {
+        books: data,
+        name: '近期热门',
+        url: 'HotBook'
+      }
+
+      this.setData({
+        hotbook: books
+      });
     }
 })

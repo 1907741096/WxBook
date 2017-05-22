@@ -2,13 +2,16 @@
   "pages": [
     "pages/index/index",
     "pages/search/search",
-    "pages/session/session"
+    "pages/session/session",
+    "pages/more/more",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "借阅伴侣",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "selectedColor": "#629401",
