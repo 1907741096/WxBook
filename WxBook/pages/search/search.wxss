@@ -15,16 +15,18 @@
   background-color: #333;
   margin-bottom: 20rpx;
 }
-
-.search-left {
-  color: #fff;
+.search-top-yun{
+  width: 100%;
   height: 80rpx;
-  line-height: 80rpx;
-  font-size: 28rpx;
-  margin-left: 20px;
-  float: left;
+  background-color: dodgerblue;
+  margin-bottom: 20rpx;
 }
-
+.search-left {
+  float: left;
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx 30rpx;
+}
 .search-right {
   float: right;
   width: 50rpx;
@@ -89,3 +91,11 @@
   float: right;
   margin-right: 32rpx;
 }
+.text-yun{
+  width: 100%;
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 300rpx;
+  color: #999;
+}
+

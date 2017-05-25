@@ -1,6 +1,6 @@
 @import "../template/template-star/template-star.wxss";
 @import "../template/template-book/template-book.wxss";
-.container{
+.container-main{
     display:flex;
     flex-direction: column;
     font-size: 13px;
@@ -69,8 +69,8 @@
 }
 
 .summary{
-    margin-left:40rpx;
-    margin-top: 40rpx;
+    float: left;
+    margin:40rpx 40rpx 0 40rpx;
     color: #777777;
 }
 
@@ -127,6 +127,16 @@
   text-align: left;
   margin: 20rpx auto;
   font-size: 28rpx;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+}
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+  margin-left: 320rpx;
 }
 
 

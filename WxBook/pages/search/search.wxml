@@ -1,28 +1,48 @@
 <import src="../template/template-book/template-book.wxml" />
-<view class="search-top">
-  <view class="search-left">启动云搜索</view>
-  <image src="/images/icon/scancode.png" class="search-right" catchtap="onScanCode"></image>
-</view>
-<view class="search">
-  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
-  <input type="text" placeholder="请输入书名关键字、首字母、编号进行搜索" placeholder-class="placeholder" bindfocus="onBindFocus" bindinput="onBindInput" />
-  <image wx:if="{{searchPanelShow}}" src="/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
-</view>
-<view class="search-panel" wx:if="{{searchPanelShow}}">
-  <block wx:for="{{searchResult}}" wx:for-item="book">
-    <view class="single-view-container">
-      <template is="bookTemplate" data="{{...book}}" />
-    </view>
-  </block>
-</view>
-<view class="grid-container" wx:else catchtap="onChange">
-  <view class="change">
-    <image src="/images/icon/change.png"></image>
-    <text>不喜欢?换一组</text>
+<view class="local" wx:if="{{local}}">
+  <view class="search-top">
+    <image src="/images/icon/yun.png" class="search-left" catchtap="onYun"></image>
+    <image src="/images/icon/scancode.png" class="search-right" catchtap="onScanCode"></image>
   </view>
-  <block wx:for="{{books}}" wx:for-item="book">
-    <view class="single-view-container">
-      <template is="bookTemplate" data="{{...book}}" />
+  <view class="search">
+    <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+    <input type="text" placeholder="请输入书名关键字、首字母、编号进行搜索" placeholder-class="placeholder" bindfocus="onBindFocus" bindinput="onBindInput" />
+    <image wx:if="{{searchPanelShow}}" src="/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
+  </view>
+  <view class="search-panel" wx:if="{{searchPanelShow}}">
+    <block wx:for="{{searchResult}}" wx:for-item="book">
+      <view class="single-view-container">
+        <template is="bookTemplate" data="{{...book}}" />
+      </view>
+    </block>
+  </view>
+  <view class="grid-container" wx:else catchtap="onChange">
+    <view class="change">
+      <image src="/images/icon/change.png"></image>
+      <text>不喜欢?换一组</text>
     </view>
-  </block>
+    <block wx:for="{{books}}" wx:for-item="book">
+      <view class="single-view-container">
+        <template is="bookTemplate" data="{{...book}}" />
+      </view>
+    </block>
+  </view>
+</view>
+<view class="yun" wx:else>
+  <view class="search-top-yun">
+    <image src="/images/icon/s-yun.png" class="search-left" catchtap="offYun" style="height:50rpx;margin:16rpx 30rpx"></image>
+    <image src="/images/icon/scancode.png" class="search-right" catchtap="onScanCode"></image>
+  </view>
+  <view class="search">
+    <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+    <input type="text" placeholder="请输入书名、作者或标签等关键字进行搜索" placeholder-class="placeholder" bindconfirm="onYunSearch"/>
+  </view>
+  <view class="grid-container">
+    <view class="text-yun" wx:if="{{yun}}">欢迎使用云搜索</view>
+    <block wx:for="{{yunResult}}" wx:for-item="book">
+      <view class="single-view-container">
+        <template is="bookTemplate" data="{{...book}}" />
+      </view>
+    </block>
+  </view>
 </view>

@@ -1,6 +1,6 @@
 <import src="../template/template-star/template-star.wxml" />
 <import src="../template/template-book/template-book.wxml" />
-<view class="container">
+<view class="container-main">
   <image class="head-img" src="{{book.image}}" mode="aspectFill" />
   <view class="head-img-hover" data-src="{{book.image}}" catchtap="viewBookPostImg">
     <text class="main-title">{{book.title}}</text>
@@ -41,12 +41,26 @@
   <view class="hr"></view>
   <view class="synopsis">
     <text class="synopsis-font">书籍简介</text>
-    <text class="summary-content">{{book.summary}}</text>
+    <view wx:if="{{iss}}" class="content">
+      <text class="summary-content">{{book.summary}}</text>
+      <image class="icon" src="/images/icon/down.png" catchtap="ons"></image>
+    </view>
+    <view wx:else class="content">
+      <text class="summary-content">{{summary}}</text>
+      <image class="icon" src="/images/icon/up.png" catchtap="offs"></image>
+    </view>
   </view>
   <view class="hr"></view>
   <view class="synopsis">
     <text class="synopsis-font">作者简介</text>
-    <text class="summary-content">{{book.author_intro}}</text>
+    <view wx:if="{{isa}}" class="content">
+      <text class="summary-content">{{book.author_intro}}</text>
+      <image class="icon" src="/images/icon/down.png" catchtap="ona"></image>
+    </view>
+    <view wx:else class="content">
+      <text class="summary-content">{{author_intro}}</text>
+      <image class="icon" src="/images/icon/up.png" catchtap="offa"></image>
+    </view>
   </view>
   <view class="hr"></view>
   <view class="xgtj">相关推荐</view>

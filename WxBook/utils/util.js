@@ -34,9 +34,9 @@ function http(url, callBack, method) {
 function convertToCastString(casts) {
   var castsjoin = "";
   for (var idx in casts) {
-    castsjoin = castsjoin + casts[idx].name + " / ";
+    castsjoin = castsjoin + casts[idx].name + "/";
   }
-  return castsjoin.substring(0, castsjoin.length - 2);
+  return castsjoin.substring(0, castsjoin.length - 1);
 }
 function convertToCastInfos(casts) {
   var castsArray = [];
