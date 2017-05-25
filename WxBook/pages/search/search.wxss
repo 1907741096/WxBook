@@ -1,32 +1,91 @@
-.condition{
-  width: 100%;
-  height: 1300rpx;
+@import "../template/template-book/template-book.wxss";
+
+.single-view-container {
+  float: left;
+  margin-bottom: 40rpx;
 }
-.search-top{
+
+.grid-container {
+  margin: 0 0 40rpx 0;
+}
+
+.search-top {
   width: 100%;
   height: 80rpx;
-  background-color: #ddd;
-  display: flex;
-  flex-direction: row;
+  background-color: #333;
+  margin-bottom: 20rpx;
 }
-.scancode{
-  margin: 10rpx 20rpx;
-  width: 60rpx;
-  height: 60rpx;
+
+.search-left {
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  margin-left: 20px;
+  float: left;
 }
-.search{
-  width:650rpx;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-}
-.search image{
-  margin: 15rpx 20rpx;
+
+.search-right {
+  float: right;
   width: 50rpx;
   height: 50rpx;
+  margin: 15rpx 30rpx;
 }
-.search input{
-  width:500rpx;
+
+.search {
+  background-color: #f2f2f2;
+  height: 60rpx;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-bottom: 40rpx;
+  border-radius: 5px;
+}
+
+.search-img {
+  margin: auto 0 auto 20rpx;
+}
+
+.search input {
   height: 100%;
-  background-color: #FFF;
+  width: 600rpx;
+  margin-left: 10px;
+  font-size: 28rpx;
+}
+
+.placeholder {
+  font-size: 14px;
+  color: #d1d1d1;
+  margin-left: 20rpx;
+}
+
+.search-panel {
+  margin: 0 0 40rpx 0;
+}
+
+.xx-img {
+  height: 20rpx;
+  width: 20rpx;
+  margin: auto 20rpx auto 10rpx;
+}
+
+.change {
+  width: 100%;
+  height: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.change text {
+  float: right;
+  font-size: 26rpx;
+  color: cornflowerblue;
+  margin-right: 6rpx;
+}
+
+.change image {
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+  margin-right: 32rpx;
 }
