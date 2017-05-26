@@ -26,6 +26,8 @@ Page({
     if (!data) {
       return;
     }
+    var summary = data['summary'];
+    var author_intro = data['author_intro'];
     var book={};
     book['star'] = util.convertToStarsArray(data.rating.average / 2 + 0.5);
     book['title']=data.title;
@@ -39,12 +41,20 @@ Page({
     book['pages'] = data.pages;
     book['summary']=data.summary;
     book['author_intro']=data.author_intro;
+    if (data['summary'].length > 60) {
+      book['summary'] = data['summary'].substring(0, 60) + "...";
+    }
+    if (data['author_intro'].length > 60) {
+      book['author_intro'] = data['author_intro'].substring(0, 60) + "...";
+    }
 
     var url = "https://api.douban.com/v2/book/search?q=" + data.title + "&tag=" + data.tags[0].name +
       "&start=0&count=5";
     util.http(url, this.processYunOthers, 'get');
 
     this.setData({
+      summary: summary,
+      author_intro: author_intro,
       book: book
     });
   },
