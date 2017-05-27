@@ -1,41 +1,41 @@
 var app = getApp();
 var util = require('../../utils/util.js');
 Page({
-  data:{
-    local:true,
-    yun:true,
+  data: {
+    local: true,
+    yun: true,
     searchPanelShow: false,
     searchResult: {},
-    yunResult:{},
+    yunResult: {},
     requestUrl: "",
-    book:{},
+    book: {},
     totalCount: 0,
-    yunUrl:"",
-    isEmpty:true
+    yunUrl: "",
+    isEmpty: true
   },
-  onLoad:function(options){
-    var n=parseInt(Math.random()*260, 10);
+  onLoad: function (options) {
+    var n = parseInt(Math.random() * 260, 10);
     var url = app.globalData.http + "wxbook/api.php?c=book&a=getbook";
     this.data.requestUrl = url;
-    url+="bytag&tag=&start="+n+"&count=6";
+    url += "bytag&tag=&start=" + n + "&count=6";
     util.http(url, this.processData, 'get');
   },
-  onScanCode:function(){
+  onScanCode: function () {
     var that = this;
     wx.scanCode({
       onlyFromCamera: true,
-      success(res){
-        if(that.data.local){
-          var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyisbn&isbn"+res.result;
+      success(res) {
+        if (that.data.local) {
+          var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyisbn&isbn" + res.result;
           that.data.searchPanelShow = true;
           util.http(url, that.processData, 'get');
-        }else{
+        } else {
           var url = "https://api.douban.com/v2/book/isbn/" + res.result;
           that.data.searchPanelShow = true;
           util.http(url, that.processYunData, 'get');
         }
       },
-      fail(res){
+      fail(res) {
 
       }
     })
@@ -44,19 +44,19 @@ Page({
     if (!data) {
       return;
     }
-    var books={};
+    var books = {};
     books['rating'] = data['rating']['average'];
-    books['image']=data['images']['large'];
+    books['image'] = data['images']['large'];
     books['star'] = util.convertToStarsArray(data['rating']['average'] / 2 + 0.5);
     if (data['title'].length > 6) {
       books['title'] = data['title'].substring(0, 6) + "...";
-    }else{
-      books['title']=data['title'];
+    } else {
+      books['title'] = data['title'];
     }
-    books['bookid']=data['id'];
+    books['bookid'] = data['id'];
     this.setData({
-      yunResult: {books:books},
-      yun:false
+      yunResult: { books: books },
+      yun: false
     });
     wx.hideNavigationBarLoading();
     // this.data.totalCount += 6;
@@ -78,16 +78,16 @@ Page({
       books: books
     });
     wx.hideNavigationBarLoading();
-   // this.data.totalCount += 6;
+    // this.data.totalCount += 6;
   },
   processYunSearchData: function (data) {
     if (!data) {
       return;
     }
-    data=data.books;
+    data = data.books;
     var books = [];
     for (var i = 0; i < data.length; i++) {
-      books[i]={};
+      books[i] = {};
       books[i]['rating'] = data[i].rating['average'];
       books[i]['image'] = data[i].images['large'];
       books[i]['star'] = util.convertToStarsArray(data[i].rating['average'] / 2 + 0.5);
@@ -98,7 +98,7 @@ Page({
       }
       books[i]['bookid'] = data[i].id;
     }
-   
+
     if (this.data.isEmpty) {
       this.data.isEmpty = false;
     } else {
@@ -106,7 +106,7 @@ Page({
     }
 
     this.setData({
-      yun:false,
+      yun: false,
       yunResult: books
     });
     wx.hideNavigationBarLoading();
@@ -115,11 +115,11 @@ Page({
   //跳转详情
   onbookTap: function (event) {
     var id = event.currentTarget.dataset.bookid;
-    if(this.data.local){
+    if (this.data.local) {
       wx.navigateTo({
         url: "../detail/detail?id=" + id,
       })
-    }else{
+    } else {
       wx.navigateTo({
         url: "../detail/detail?id=" + id + "&m=yun",
       })
@@ -166,57 +166,61 @@ Page({
       searchResult: data
     });
   },
-  onChange:function(){
+  onChange: function () {
     var n = parseInt(Math.random() * 260, 10);
-    var url = this.data.requestUrl+"bytag&tag=&start=" + n + "&count=6";
+    var url = this.data.requestUrl + "bytag&tag=&start=" + n + "&count=6";
     util.http(url, this.processData, 'get');
   },
-  onYun:function(){
+  onYun: function () {
     this.setData({
-      local:false
+      local: false
     })
   },
-  offYun:function(){
+  offYun: function () {
     this.setData({
       local: true
     })
   },
-  onYunSearch:function(){
+  onYunSearch: function () {
     var value = event.data.msg.data.data.data.detail['value'];
     if (value == '') {
       this.setData({
         yunResult: [],
-        yun:true
+        yun: true
       });
-    }else{
+    } else {
       this.setData({
         yunResult: [],
         isEmpty: true,
         totalCount: 0,
         yunUrl: ""
       });
-      var url = "https://api.douban.com/v2/book/search?q="+value+"&tag="+value;
+      var url = "https://api.douban.com/v2/book/search?q=" + value + "&tag=" + value;
       this.setData({
-        yunUrl:url
+        yunUrl: url
       })
       util.http(url, this.processYunSearchData, 'get');
     }
   },
   //上滑
   onReachBottom: function (event) {
-    var nextUrl = this.data.yunUrl +
-      "&start=" + this.data.totalCount + "&count=20";
-    util.http(nextUrl, this.processYunSearchData)
-    wx.showNavigationBarLoading();
+    if (!this.data.local && this.data.yunUrl != "") {
+      var nextUrl = this.data.yunUrl +
+        "&start=" + this.data.totalCount + "&count=20";
+      util.http(nextUrl, this.processYunSearchData)
+      wx.showNavigationBarLoading();
+    }
   },
   //下拉
   onPullDownRefresh: function (event) {
-    var refreshUrl = this.data.yunUrl +
-      "&star=0&count=20";
-    this.data.books = {};
-    this.data.isEmpty = true;
-    this.data.totalCount = 0;
-    util.http(refreshUrl, this.processYunSearchData);
-    wx.showNavigationBarLoading();
+    if (!this.data.local && this.data.yunUrl != "") {
+      var refreshUrl = this.data.yunUrl +
+        "&star=0&count=20";
+      this.data.books = {};
+      this.data.isEmpty = true;
+      this.data.totalCount = 0;
+      util.http(refreshUrl, this.processYunSearchData);
+      wx.showNavigationBarLoading();
+    }
   },
 })

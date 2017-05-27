@@ -1,10 +1,11 @@
 {
-  "pages": [
+  "pages": ["pages/info/info",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
     "pages/more/more",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/info/info"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,10 +17,10 @@
     "selectedColor": "#333333",
     "list": [
       {
-        "pagePath": "pages/session/session",
-        "text": "会话",
-        "iconPath": "images/icon/session.png",
-        "selectedIconPath": "images/icon/s-session.png"
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "images/icon/search.png",
+        "selectedIconPath": "images/icon/s-search.png"
       },
       {
         "pagePath": "pages/index/index",
@@ -28,10 +29,10 @@
         "selectedIconPath": "images/icon/s-book.png"
       },
       {
-        "pagePath": "pages/search/search",
-        "text": "搜索",
-        "iconPath": "images/icon/search.png",
-        "selectedIconPath": "images/icon/s-search.png"
+        "pagePath": "pages/info/info",
+        "text": "个人",
+        "iconPath": "images/icon/info.png",
+        "selectedIconPath": "images/icon/s-info.png"
       }
     ]
   }

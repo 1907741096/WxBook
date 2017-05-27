@@ -1,0 +1,14 @@
+<view class="main">
+  <view class="info">
+    <view class="info-top">
+      <image src="/images/icon/setting.png" class="setting"></image>
+      <image src="/images/icon/message.png" class="message"></image>
+    </view>  
+    <view class="info-main" wx:if="{{islogin}}">
+
+    </view>
+    <view class="info-main" wx:else>
+      请登录  
+    </view>
+  </view>
+</view>
