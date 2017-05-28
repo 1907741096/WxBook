@@ -3,6 +3,7 @@ var util = require('../../utils/util.js');
 Page({
 
   data: {
+    local:null,
     iss:true,
     isa:true,
     summary:"",
@@ -15,9 +16,11 @@ Page({
     var bookId = options.id;
     var yun=options.m;
     if(yun){
+      this.data.local=false;
       var url = "https://api.douban.com/v2/book/" + bookId;
       util.http(url, this.processYunData, 'get');
     }else{
+      this.data.local=true;
       var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyid&id=" + bookId;
       util.http(url, this.processData, 'get');
     }
@@ -95,6 +98,7 @@ Page({
     var books=[];
     for (var i = 0; i < data.length; i++) {
       books[i]={};
+      books[i].bookid=data[i].id;
       books[i].star = util.convertToStarsArray(data[i].rating.average / 2 + 0.5);
       if (data[i].title.length > 6) {
         books[i].title = data[i].title.substring(0, 6) + "...";
@@ -133,9 +137,15 @@ Page({
   },
   onbookTap: function (event) {
     var id = event.currentTarget.dataset.bookid;
-    wx.navigateTo({
-      url: "../detail/detail?id=" + id,
-    })
+    if (this.data.local) {
+      wx.navigateTo({
+        url: "../detail/detail?id=" + id,
+      })
+    } else {
+      wx.navigateTo({
+        url: "../detail/detail?id=" + id + "&m=yun",
+      })
+    }
   },
   ons:function(){
     this.setData({

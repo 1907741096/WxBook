@@ -1,11 +1,13 @@
 {
-  "pages": ["pages/info/info",
+  "pages": ["pages/info/login/login",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
     "pages/more/more",
     "pages/detail/detail",
-    "pages/info/info"
+    "pages/info/info",
+
+    "pages/info/reg/reg"
   ],
   "window": {
     "backgroundTextStyle": "light",

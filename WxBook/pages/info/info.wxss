@@ -1,12 +1,50 @@
+page{
+    background-color: #eee;
+    height: 100%;
+}
+.page {
+  font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Droid Sans Fallback', 'Microsoft Yahei', sans-serif;
+}
+.page-bottom{
+  height: 100%;
+  width: 750rpx;
+  position: fixed; 
+  background-color: #444;
+  z-index: 0;
+}
+.wc{
+  color: white;
+  padding: 30rpx 0 30rpx 40rpx;
+}
+.page-content{
+  padding-top: 300rpx;
+}
+.page-top{
+  height: 100%;
+  position: fixed;
+  width: 750rpx;
+  background-color: #FFF;
+  z-index: 0;
+  transition: All 0.4s ease; 
+  -webkit-transition: All 0.4s ease;
+}
+.c-state1{
+  transform: rotate(0deg) scale(1) translate(75%,0%); 
+  -webkit-transform: rotate(0deg) scale(1) translate(75%,0%); 
+}
+.c-state2{
+  transform: rotate(0deg) scale(.8) translate(75%,0%); 
+  -webkit-transform: rotate(0deg) scale(.8) translate(75%,0%); 
+}
 .main{
   width: 100%;
-  height: 1000rpx;
-  background-color: #EEE;
+  height: 100%;
+  background-color: #eee;
 }
 .info-top{
   width: 100%;
   height: 80rpx;
-  background-color: #999;
+  background-color: #333;
 }
 .setting{
   float: left;
@@ -22,6 +60,27 @@
 }
 .info-main{
   width: 100%;
-  height: 200rpx;
-  background-color: #ddd;
+  height: 160rpx;
+  background-color: #333;
+}
+.unlogin{
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  margin: 30rpx;
+  border: 1px solid #999;
+  border-radius: 50%;
+}
+.unlogin-text{
+  float: left;
+  font-size: 40rpx;
+  height: 160rpx;
+  line-height: 180rpx;
+  color: #FFF;
+}
+.right{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin: 65rpx 20rpx;
 }
