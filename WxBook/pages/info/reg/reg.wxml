@@ -1,2 +1,11 @@
-<!--pages/info/reg/reg.wxml-->
-<text>pages/info/reg/reg.wxml</text>
+<image src="/images/background.jpg" class="back"></image>
+<view class="reg-main">
+  <form>
+    <view class="RegLogo">Sign up</view>
+    <input type="text" placeholder="微信号or手机号" placeholder-style="color:#FFF" name="username"/>
+    <input type="text" placeholder="密码" placeholder-style="color:#FFF" name="password"/>
+    <input type="text" placeholder="确认密码" placeholder-style="color:#FFF" name="c-password"/>
+    <input type="text" placeholder="学校" placeholder-style="color:#FFF" name="school"/>
+     <button formType="submit">Register</button>
+  </form>
+</view>

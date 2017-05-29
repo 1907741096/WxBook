@@ -1,10 +1,11 @@
 {
-  "pages": ["pages/info/login/login",
+  "pages": ["pages/info/reg/reg",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
     "pages/more/more",
     "pages/detail/detail",
+    "pages/info/login/login",
     "pages/info/info",
 
     "pages/info/reg/reg"
