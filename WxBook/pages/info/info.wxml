@@ -19,16 +19,19 @@
     <view class="main">
   <view class="info">
     <view class="info-top">
-      <image src="/images/icon/setting.png" class="setting"></image>
+      <image src="/images/icon/cart.png" class="setting" catchtap="tap_ch"></image>
       <image src="/images/icon/message.png" class="message"></image>
     </view>  
     <view class="info-main" wx:if="{{islogin}}">
 
     </view>
-    <view class="info-main" wx:else>
-       <image src="/images/icon/unlogin.png" class="unlogin"></image>
-       <text class="unlogin-text" catchtap="gologin">Please Login</text>
-       <image src="/images/icon/right.png" class="right" catchtap="gologin"></image>
+    <view class="nologin" wx:else>
+      <view class="info-main">
+        <image src="/images/icon/unlogin.png" class="unlogin"></image>
+        <text class="unlogin-text" catchtap="gologin">Please Login</text>
+        <image src="/images/icon/right.png" class="right" catchtap="gologin"></image>
+      </view>
+      <view class="plogin">登录开启更多功能</view>
     </view>
   </view>
 </view>

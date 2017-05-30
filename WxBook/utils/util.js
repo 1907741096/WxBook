@@ -10,14 +10,14 @@ function convertToStarsArray(stars) {
   }
   return array;
 }
-function http(url, callBack, method) {
+function http(url, callBack, method,data) {
   var that = this;
   wx.request({
     url: url,
-    data: {},
+    data: data,
     method: method,
     header: {
-      "Content-Type": "app/xml"
+      "Content-Type": "application/x-www-form-urlencoded"
     }, // 设置请求的 header
     success: function (res) {
       callBack(res.data);
@@ -49,9 +49,19 @@ function convertToCastInfos(casts) {
   }
   return castsArray;
 }
+function sleep(numberMillis) {
+  var now = new Date();
+  var exitTime = now.getTime() + numberMillis;
+  while (true) {
+    now = new Date();
+    if (now.getTime() > exitTime)
+      return;
+  }
+}
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
   convertToCastString: convertToCastString,
-  convertToCastInfos, convertToCastInfos
+  convertToCastInfos: convertToCastInfos,
+  sleep:sleep
 }

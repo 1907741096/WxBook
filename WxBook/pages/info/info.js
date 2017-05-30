@@ -1,4 +1,5 @@
-// pages/info/info.js
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
   /**
@@ -20,56 +21,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    if (wx.getStorageSync('id')) {
+      var id = wx.getStorageSync('id');
+      var url = app.globalData.http + "wxbook/api.php?c=user&a=getUserById&id=" + id;
+      util.http(url, this.processData, 'GET');
+      this.setData({
+        islogin: true
+      });
+    } else {
+      this.setData({
+        islogin: false
+      });
+    }
   },
   tap_ch: function (e) {
     if (this.data.open) {
@@ -87,19 +64,16 @@ Page({
   tap_start: function (e) {
     this.data.mark = this.data.newmark = e.touches[0].pageX;
     if (this.data.staus == 1) {
-      // staus = 1指默认状态
+     
       this.data.startmark = e.touches[0].pageX;
     } else {
-      // staus = 2指屏幕滑动到右边的状态
+     
       this.data.startmark = e.touches[0].pageX;
     }
 
   },
   tap_drag: function (e) {
-    /*
-     * 手指从左向右移动
-     * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
-     */
+    
     this.data.newmark = e.touches[0].pageX;
     if (this.data.mark < this.data.newmark) {
       if (this.data.newmark <= this.data.startmark) {
@@ -114,10 +88,7 @@ Page({
       }
 
     }
-    /*
-     * 手指从右向左移动
-     * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
-     */
+    
     else if (this.data.mark > this.data.newmark) {
       if (this.data.staus == 2 && this.data.startmark - this.data.newmark < this.data.windowWidth * 0.75) {
         this.setData({
@@ -166,6 +137,11 @@ Page({
   gologin:function(){
     wx.navigateTo({
       url: 'login/login',
+    })
+  },
+  processData:function(data){
+    this.setData({
+      user:data
     })
   }
 })

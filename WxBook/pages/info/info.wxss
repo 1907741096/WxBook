@@ -84,3 +84,14 @@ page{
   float: right;
   margin: 65rpx 20rpx;
 }
+.nologin{
+  width: 100%;
+  height: 500rpx;
+}
+.plogin{
+  width: 100%;
+  margin-top: 300rpx;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}

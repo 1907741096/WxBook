@@ -1,10 +1,10 @@
 <image src="/images/background.jpg" class="back"></image>
 <view class="reg-main">
-  <form>
+  <form catchsubmit="formSubmit">
     <view class="RegLogo">Sign up</view>
     <input type="text" placeholder="微信号or手机号" placeholder-style="color:#FFF" name="username"/>
-    <input type="text" placeholder="密码" placeholder-style="color:#FFF" name="password"/>
-    <input type="text" placeholder="确认密码" placeholder-style="color:#FFF" name="c-password"/>
+    <input type="password" placeholder="密码" placeholder-style="color:#FFF" name="password"/>
+    <input type="password" placeholder="确认密码" placeholder-style="color:#FFF" name="password1"/>
     <input type="text" placeholder="学校" placeholder-style="color:#FFF" name="school"/>
      <button formType="submit">Register</button>
   </form>
