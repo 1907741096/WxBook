@@ -23,7 +23,7 @@
       <image src="/images/icon/message.png" class="message"></image>
     </view>  
     <view class="classname" wx:if="{{islogin}}">
-      <view class="info-main">
+      <view class="info-main" catchtap="goprofile">
         <image src="{{user.face}}" class="unlogin"  data-src="{{user.face}}" catchtap="viewBookPostImg"></image>
         <text class="unlogin-text">{{user.name}}</text>
         <image src="/images/icon/right.png" class="right"></image>

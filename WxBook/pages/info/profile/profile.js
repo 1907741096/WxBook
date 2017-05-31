@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sex:1
+    sex:1,
+    face:"",
+    user:{}
   },
 
   /**
@@ -19,6 +21,7 @@ Page({
   },
   processData: function (data) {
     this.setData({
+      face:data.face,
       user: data
     })
   },
@@ -73,18 +76,63 @@ Page({
   },
   formSubmit:function(event){
     var data = event.detail.value;
+    wx.showNavigationBarLoading();
+    if(data['name']==''){
+      wx.showToast({
+        title: '昵称不能为空',
+        image: "/images/icon/x.png",
+        duration: 1000
+      })
+      return;
+    }
+    if(data['school']==''){
+      wx.showToast({
+        title: '学校不能为空',
+        image: "/images/icon/x.png",
+        duration: 1000
+      })
+      return;
+    }
+    wx.uploadFile({
+      url: '',
+      filePath: '',
+      name: '',
+    })
     data['sex']=this.data.sex;
-    console.log(data);return;
+    data['id']=this.data.user.id;
     var url=app.globalData.http+"wxbook/api.php?c=user&a=updateUser";
-    util.http(url,this.processData,"POST",data);
+    util.http(url,this.processUpdate,"POST",data);
   },
-  processData:function(data){
-
+  processUpdate(data){
+    wx.hideNavigationBarLoading();
+    if (data.status == 0) {
+      wx.showToast({
+        title: data.message,
+        image: "/images/icon/x.png",
+        duration: 1000
+      })
+      return;
+    }
+    wx.showToast({
+      title: data.message,
+      duration: 1000      
+    })
   },
   radioChange:function(event){
-    var sex=event.detail;
+    var sex=event.detail.value;
     this.setData({
       sex:sex
+    })
+  },
+  chooseface:function(){
+    var that=this;
+    wx.chooseImage({
+      count:1,
+      success: function(res) {
+        that.setData({
+          face: res.tempFilePaths
+        })
+      },
     })
   }
 })

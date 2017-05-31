@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/info/profile/profile",
+   
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
