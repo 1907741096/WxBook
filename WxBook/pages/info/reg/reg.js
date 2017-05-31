@@ -6,14 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    openid:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that=this;
+    wx.login({
+      success:function(res){
+        var url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + app.globalData.appid + "&secret=" + app.globalData.secret+"&js_code="+res.code+"&grant_type=authorization_code";
+        util.http(url,that.processData,"GET");
+      }
+    })
+  },
+  processData:function(data){
+    this.setData({
+      openid:data.openid
+    });
   },
 
   /**
@@ -98,8 +109,17 @@ Page({
       })
       return;
     }
-    var url = app.globalData.http + "wxbook/api.php?c=user&a=addUser";
-    util.http(url, this.regResult,'POST',data);
+    var that=this;
+    wx.getUserInfo({
+      success:function(res){
+        data.face=res.userInfo.avatarUrl;
+        data.name = res.userInfo.nickName;
+        data.sex = res.userInfo.gender;
+        data.openid=that.data.openid;
+        var url = app.globalData.http + "wxbook/api.php?c=user&a=addUser";
+        util.http(url, that.regResult, 'POST', data);
+      }
+    })
   },
   regResult:function(data){
     if(data.status==0){

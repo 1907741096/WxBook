@@ -2,10 +2,11 @@
 <view class="reg-main">
   <form catchsubmit="formSubmit">
     <view class="RegLogo">Sign up</view>
-    <input type="text" placeholder="微信号or手机号" placeholder-style="color:#FFF" name="username"/>
-    <input type="password" placeholder="密码" placeholder-style="color:#FFF" name="password"/>
-    <input type="password" placeholder="确认密码" placeholder-style="color:#FFF" name="password1"/>
-    <input type="text" placeholder="学校" placeholder-style="color:#FFF" name="school"/>
+    <view class="ts">已通过微信注册，请完善信息</view>
+    <input type="text" placeholder="username" placeholder-style="color:#FFF" name="username"/>
+    <input type="password" placeholder="password" placeholder-style="color:#FFF" name="password"/>
+    <input type="password" placeholder="confirm password" placeholder-style="color:#FFF" name="password1"/>
+    <input type="text" placeholder="school" placeholder-style="color:#FFF" name="school"/>
      <button formType="submit">Register</button>
   </form>
 </view>

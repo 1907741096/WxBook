@@ -43,3 +43,10 @@ button{
   font-weight: 700;
   color: #FFF;
 }
+.ts{
+  font-size: 13px;
+  width: 100%;
+  text-align: center;
+  margin-top: 40rpx;
+  color: #FFF;
+}

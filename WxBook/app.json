@@ -1,14 +1,15 @@
 {
   "pages": [
-    
+    "pages/info/profile/profile",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
     "pages/more/more",
     "pages/detail/detail",
     "pages/info/login/login",
-   "pages/info/reg/reg",
-    "pages/info/info"
+    "pages/info/reg/reg",
+    "pages/info/info",
+    "pages/info/profile/profile"
 
 
   ],

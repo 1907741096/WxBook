@@ -1,0 +1,41 @@
+<form catchsubmit="formSubmit">
+  <view class="profile-main">
+    <view class="profile-face">
+      <text>头像</text>
+      <image src="{{user.face}}"></image>
+      <input type="text" name="face" value="{{user.face}}" class="hidden" />
+    </view>
+    <view class="profile-name">
+      <text>昵称</text>
+      <input type="text" name="name" value="{{user.name}}" class="name" />
+    </view>
+    <view class="profile-name">
+      <text>性别</text>
+      <radio-group bindchange="radioChange">
+        <view>
+          <image src="/images/icon/nv.png" class="seximg"></image>
+          <radio value="0" checked="{{user.sex==0}}" color="#e89abe"/>
+        </view>
+        <view>
+          <image src="/images/icon/nan.png" class="seximg"></image>
+          <radio value="1" checked="{{user.sex==1}}" color="#1296db"/>
+        </view>
+      </radio-group>
+    </view>
+    <view class="profile-name" style="border:none">
+      <text>学校</text>
+      <input type="text" name="school" value="{{user.school}}" class="name" />
+    </view>
+  </view>
+  <view class="profile-main">
+    <view class="profile-name">
+      <text>账号</text>
+      <view>{{user.username}}</view>
+    </view>
+    <view class="profile-name" style="border:none;">
+      <text>二维码</text>
+      <image src="/images/icon/ewm.png" class="ewm"></image>
+    </view>
+  </view>
+  <button formType="submit" class="login-button">保存资料</button>
+</form>

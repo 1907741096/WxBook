@@ -8,7 +8,7 @@
       <image src="/images/icon/psw.png"></image>
       <input type="password" name="password" placeholder="密码"/>
     </view>
-    <view class="goreg" catchtap="goreg">没有账号？立即注册</view>
+    <view class="goreg" catchtap="goreg">没有账号？使用微信注册</view>
     <button formType="submit" class="login-button">Login</button>
   </form>
   <view class="otherlogin">其他登录方式</view>

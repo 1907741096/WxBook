@@ -22,8 +22,35 @@
       <image src="/images/icon/cart.png" class="setting" catchtap="tap_ch"></image>
       <image src="/images/icon/message.png" class="message"></image>
     </view>  
-    <view class="info-main" wx:if="{{islogin}}">
-
+    <view class="classname" wx:if="{{islogin}}">
+      <view class="info-main">
+        <image src="{{user.face}}" class="unlogin"  data-src="{{user.face}}" catchtap="viewBookPostImg"></image>
+        <text class="unlogin-text">{{user.name}}</text>
+        <image src="/images/icon/right.png" class="right"></image>
+      </view>
+      <view class="info-list">
+        <view class="info-one" catchtap="goprofile">
+          <image src="/images/icon/gr.png" class="l"></image>
+          <text>个人资料</text>
+          <image src="/images/icon/r.png" class="r"></image>
+        </view>
+        <view class="info-one">
+          <image src="/images/icon/js.png" class="l"></image>
+          <text>已借图书</text>
+          <image src="/images/icon/r.png" class="r"></image>
+        </view>
+        <view class="info-one" catchtap="tap_ch">
+          <image src="/images/icon/gw.png" class="l"></image>
+          <text>借书车</text>
+          <image src="/images/icon/r.png" class="r"></image>
+        </view>
+        <view class="info-one">
+          <image src="/images/icon/sz.png" class="l"></image>
+          <text>设置</text>
+          <image src="/images/icon/r.png" class="r"></image>
+        </view>
+      </view>
+      <view class="outlogin" catchtap="outlogin">退出登录</view>
     </view>
     <view class="nologin" wx:else>
       <view class="info-main">

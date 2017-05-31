@@ -1,0 +1,82 @@
+page{
+  width: 100%;
+  background-color: #f2f2f2;
+}
+.hidden{
+  display: none;
+}
+.profile-main{
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: #FFF;
+}
+.profile-face{
+  width: 710rpx;
+  margin: 0 auto;
+  height: 180rpx;
+  border-bottom: 1px solid #ddd;
+}
+.profile-face text{
+  height: 180rpx;
+  line-height: 180rpx;
+  float: left;
+  font-size: 16px;
+}
+.profile-face image{
+  width: 140rpx;
+  height: 140rpx;
+  float: right;
+  margin: 20rpx 0;
+}
+.profile-name{
+  width: 710rpx;
+  margin: 0 auto;
+  height: 100rpx;
+  border-bottom: 1px solid #ddd;
+}
+.profile-name text{
+  height: 100rpx;
+  line-height: 100rpx;
+  float: left;
+  font-size: 16px;
+}
+.profile-name view{
+  height: 100rpx;
+  line-height: 100rpx;
+  float: right;
+  font-size: 14px;
+  color: #666;
+}
+.name{
+  height: 100rpx;
+  line-height: 100rpx;
+  float: right;
+  text-align: right;
+  font-size: 14px;
+  color: #666;
+}
+.login-button{
+  width: 710rpx;
+  height: 60rpx;
+  margin-top: 40rpx;
+  line-height: 60rpx;
+  font-size: 14px;
+  background-color: limegreen;
+  color: #FFF;
+  border: none;
+}
+.ewm{
+   width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin: 30rpx 0;
+}
+.sex{
+  margin:0 10rpx;
+}
+.seximg{
+  float: left;
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx 10rpx;
+}

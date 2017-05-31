@@ -35,7 +35,7 @@
   </view>
   <view class="search">
     <icon type="search" class="search-img" size="13" color="#405f80"></icon>
-    <input type="text" placeholder="请输入书名、作者或标签等关键字进行搜索" placeholder-class="placeholder" bindconfirm="onYunSearch"/>
+    <input type="text" placeholder="请输入书名、作者或标签等关键字进行搜索" placeholder-class="placeholder" bindconfirm="onYunSearch" confirm-type="done"/>
   </view>
   <view class="grid-container">
     <view class="text-yun" wx:if="{{yun}}">欢迎使用云搜索</view>

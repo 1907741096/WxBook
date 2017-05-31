@@ -143,5 +143,24 @@ Page({
     this.setData({
       user:data
     })
+  },
+  outlogin: function () {
+    wx.removeStorageSync('id');
+    this.setData({
+      islogin: false,
+      user: {}
+    })
+  },
+  viewBookPostImg: function (event) {
+    var src = event.currentTarget.dataset.src;
+    wx.previewImage({
+      current: src,//当前显示图片的http链接
+      urls: [src]//需要预览的图片http链接列表
+    })
+  },
+  goprofile:function(){
+    wx.navigateTo({
+      url: 'profile/profile',
+    })
   }
 })
