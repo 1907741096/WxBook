@@ -32,7 +32,7 @@
       <text>账号</text>
       <view>{{user.username}}</view>
     </view>
-    <view class="profile-name" style="border:none;">
+    <view class="profile-name" style="border:none;" catchtap="getcode">
       <text>二维码</text>
       <image src="/images/icon/ewm.png" class="ewm"></image>
     </view>

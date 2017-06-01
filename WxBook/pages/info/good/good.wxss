@@ -1,0 +1,9 @@
+@import "../../template/template-book/template-book.wxss";
+.single-view-container{
+    float: left;
+    margin-bottom: 40rpx;
+}
+.grid-container{
+    height: 1300rpx;
+    margin: 0 0 40rpx 0;
+}

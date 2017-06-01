@@ -39,12 +39,27 @@
           <text>已借图书</text>
           <image src="/images/icon/r.png" class="r"></image>
         </view>
+        <view class="info-one" catchtap="gogood">
+          <image src="/images/icon/dz.png" class="l"></image>
+          <text>我的点赞</text>
+          <image src="/images/icon/r.png" class="r"></image>
+        </view>
+        <view class="info-one" catchtap="gocollect">
+          <image src="/images/icon/sc.png" class="l"></image>
+          <text>我的收藏</text>
+          <image src="/images/icon/r.png" class="r"></image>
+        </view>
         <view class="info-one" catchtap="tap_ch">
           <image src="/images/icon/gw.png" class="l"></image>
           <text>借书车</text>
           <image src="/images/icon/r.png" class="r"></image>
         </view>
         <view class="info-one">
+          <image src="/images/icon/yd.png" class="l"></image>
+          <text>预订</text>
+          <image src="/images/icon/r.png" class="r"></image>
+        </view>
+        <view class="info-one" style="border-bottom:1px solid #ddd">
           <image src="/images/icon/sz.png" class="l"></image>
           <text>设置</text>
           <image src="/images/icon/r.png" class="r"></image>

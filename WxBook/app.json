@@ -1,6 +1,5 @@
 {
   "pages": [
-   
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
@@ -9,9 +8,12 @@
     "pages/info/login/login",
     "pages/info/reg/reg",
     "pages/info/info",
-    "pages/info/profile/profile"
-
-
+    "pages/info/profile/profile",
+    "pages/info/good/good",
+    "pages/info/collect/collect",
+    "pages/info/borrow/borrow",
+    "pages/info/reserve/reserve",
+    "pages/info/setting/setting"
   ],
   "window": {
     "backgroundTextStyle": "light",

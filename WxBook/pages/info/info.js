@@ -162,5 +162,15 @@ Page({
     wx.navigateTo({
       url: 'profile/profile',
     })
+  },
+  gogood: function () {
+    wx.navigateTo({
+      url: 'good/good',
+    })
+  },
+  gocollect: function () {
+    wx.navigateTo({
+      url: 'collect/collect',
+    })
   }
 })

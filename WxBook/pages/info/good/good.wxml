@@ -1,0 +1,8 @@
+<import src="../../template/template-book/template-book.wxml" />
+<view class="grid-container">
+  <block wx:for="{{books}}" wx:for-item="book">
+    <view class="single-view-container">
+      <template is="bookTemplate" data="{{...book}}" />
+    </view>
+  </block>
+</view>

@@ -1,4 +1,4 @@
-<import src="../template/template-star/template-star.wxml" />
+ <import src="../template/template-star/template-star.wxml" />
 <import src="../template/template-book/template-book.wxml" />
 <view class="container-main">
   <image class="head-img" src="{{book.image}}" mode="aspectFill" />
@@ -17,6 +17,26 @@
       </text>
       <text class="highlight-font">
         {{book.price}}
+      </text>
+      <text class="plain-font">
+        库存
+      </text>
+      <text class="highlight-font">
+        {{book.count}}
+      </text>
+    </view>
+    <view class="like">
+      <text class="plain-font">
+        点赞
+      </text>
+      <text class="highlight-font">
+        {{book.good}}
+      </text>
+      <text class="plain-font">
+        收藏
+      </text>
+      <text class="highlight-font">
+        {{book.collect}}
       </text>
     </view>
   </view>
@@ -71,4 +91,30 @@
       </block>
     </view>
   </scroll-view>
+  <view class="under"></view>
+  <view class="localunder" wx:if="{{local}}">
+    <view class="under-one" catchtap="changegood">
+      <view wx:if="{{good}}">
+        <image src="/images/icon/ydz.png"></image>
+        <text>已点赞</text>
+      </view>
+      <view wx:else>
+        <image src="/images/icon/dz.png"></image>
+        <text>点赞</text>
+      </view>
+    </view>
+    <view class="under-one" style="border:none;" catchtap="changecollect">
+      <view wx:if="{{collect}}">
+        <image src="/images/icon/ysc.png"></image>
+        <text>已收藏</text>
+      </view>
+      <view wx:else>
+        <image src="/images/icon/sc.png"></image>
+        <text>收藏</text>
+      </view>
+    </view>
+    <view class="addcart">加入借书车</view>
+    <view class="yuding">在线预定</view>
+  </view>
+  <view class="yununder" wx:else></view>
 </view>

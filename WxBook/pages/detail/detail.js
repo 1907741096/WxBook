@@ -3,26 +3,70 @@ var util = require('../../utils/util.js');
 Page({
 
   data: {
+    islogin:false,
+    id:"",
     local:null,
     iss:true,
     isa:true,
     summary:"",
     author_intro:"",
     book: {},
-    others:{}
+    others:{},
+    good:false,
+    collect:false
   },
 
   onLoad: function (options) {
+    if(wx.getStorageSync('id')){
+      this.setData({
+        islogin:true,
+        id:wx.getStorageSync('id')
+      })
+    }
     var bookId = options.id;
     var yun=options.m;
     if(yun){
-      this.data.local=false;
+      this.setData({
+        local: false
+      })
       var url = "https://api.douban.com/v2/book/" + bookId;
       util.http(url, this.processYunData, 'get');
     }else{
-      this.data.local=true;
+      this.setData({
+        local:true
+      })
       var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyid&id=" + bookId;
-      util.http(url, this.processData, 'get');
+      util.http(url, this.processData, 'GET');
+    }
+  },
+  changegood:function(){
+      var url = app.globalData.http + "wxbook/api.php?c=good&a=changeGood&userid=" + this.data.id + "&bookid=" + this.data.book['id'];
+      util.http(url, this.processGood, 'GET');
+  },
+  processGood:function(data){
+    if(data){
+      this.setData({
+        good:true
+      })
+    }else{
+      this.setData({
+        good: false
+      })
+    }
+  },
+  changecollect: function () {
+    var url = app.globalData.http + "wxbook/api.php?c=collect&a=changeCollect&userid=" + this.data.id + "&bookid=" + this.data.book['id'];
+    util.http(url, this.processCollect, 'GET');
+  },
+  processCollect:function(data){
+    if (data) {
+      this.setData({
+        collect: true
+      })
+    } else {
+      this.setData({
+        collect: false
+      })
     }
   },
   processYunData: function (data) {
@@ -44,6 +88,7 @@ Page({
     book['pages'] = data.pages;
     book['summary']=data.summary;
     book['author_intro']=data.author_intro;
+    book['count'] = 0; book['good'] = 0; book['collect'] = 0;
     if (data['summary'].length > 60) {
       book['summary'] = data['summary'].substring(0, 60) + "...";
     }
@@ -89,6 +134,13 @@ Page({
       author_intro:author_intro,
       book: data
     });
+    if (this.data.islogin) {
+      var goodurl = app.globalData.http + "wxbook/api.php?c=good&a=checkGood&userid=" + this.data.id + "&bookid=" + data['id'];
+      console.log(goodurl);
+      util.http(goodurl, this.processGood, 'GET');
+      var collecturl = app.globalData.http + "wxbook/api.php?c=collect&a=checkCollect&userid=" + this.data.id + "&bookid=" + data['id'];
+      util.http(collecturl, this.processCollect, 'GET');
+    }
   },
   processYunOthers: function (data) {
     if (!data) {
