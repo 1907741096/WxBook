@@ -4,6 +4,6 @@
     margin-bottom: 40rpx;
 }
 .grid-container{
-    height: 1300rpx;
+    height: 100%;
     margin: 0 0 40rpx 0;
 }

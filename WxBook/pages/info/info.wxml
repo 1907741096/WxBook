@@ -1,81 +1,83 @@
 <view class="page">
   <view class="page-bottom">
-    <view class="page-content">
-      <view class="wc">
-        <text>第一个item1</text>
-      </view>
-      <view class="wc">
-        <text>第二个item2</text>
-      </view>
-      <view class="wc">
-        <text>第三个item3</text>
-      </view>
-      <view class="wc">
-        <text>第四个item4</text>
-      </view>
+    <view class="cart-top">
+      <image src="/images/icon/scancode.png" catchtap="scancode"></image>
+      <text>扫码加入借书车</text>
     </view>
+    <scroll-view scroll-y="true" style="height:1000rpx">
+      <block wx:for="{{carts}}" wx:for-item="cart">
+        <view class="cart">
+          <image src="{{cart.image}}" catchtap="onbookTap" data-bookid="{{cart.bookid}}"></image>
+          <view class="cart-right">
+            <view class="cart-title" catchtap="onbookTap" data-bookid="{{cart.bookid}}">{{cart.title}}</view>
+            <view class="cart-count">剩余库存  {{cart.count}}</view>
+            <view class="cart-delete" catchtap="deletecart" data-id="{{cart.id}}">删除</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
   </view>
   <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top" style="{{translate}}">
     <view class="main">
-  <view class="info">
-    <view class="info-top">
-      <image src="/images/icon/cart.png" class="setting" catchtap="tap_ch"></image>
-      <image src="/images/icon/message.png" class="message"></image>
-    </view>  
-    <view class="classname" wx:if="{{islogin}}">
-      <view class="info-main" catchtap="goprofile">
-        <image src="{{user.face}}" class="unlogin"  data-src="{{user.face}}" catchtap="viewBookPostImg"></image>
-        <text class="unlogin-text">{{user.name}}</text>
-        <image src="/images/icon/right.png" class="right"></image>
+      <view class="info">
+        <view class="info-top">
+          <image src="/images/icon/cart.png" class="setting" catchtap="tap_ch"></image>
+          <image src="/images/icon/message.png" class="message"></image>
+        </view>
+        <view class="classname" wx:if="{{islogin}}">
+          <view class="info-main" catchtap="goprofile">
+            <image src="{{user.face}}" class="unlogin" data-src="{{user.face}}" catchtap="viewBookPostImg"></image>
+            <text class="unlogin-text">{{user.name}}</text>
+            <image src="/images/icon/right.png" class="right"></image>
+          </view>
+          <view class="info-list">
+            <view class="info-one" catchtap="goprofile">
+              <image src="/images/icon/gr.png" class="l"></image>
+              <text>个人资料</text>
+              <image src="/images/icon/r.png" class="r"></image>
+            </view>
+            <view class="info-one">
+              <image src="/images/icon/js.png" class="l"></image>
+              <text>已借图书</text>
+              <image src="/images/icon/r.png" class="r"></image>
+            </view>
+            <view class="info-one" catchtap="gogood">
+              <image src="/images/icon/dz.png" class="l"></image>
+              <text>我的点赞</text>
+              <image src="/images/icon/r.png" class="r"></image>
+            </view>
+            <view class="info-one" catchtap="gocollect">
+              <image src="/images/icon/sc.png" class="l"></image>
+              <text>我的收藏</text>
+              <image src="/images/icon/r.png" class="r"></image>
+            </view>
+            <view class="info-one" catchtap="tap_ch">
+              <image src="/images/icon/gw.png" class="l"></image>
+              <text>借书车</text>
+              <image src="/images/icon/r.png" class="r"></image>
+            </view>
+            <view class="info-one">
+              <image src="/images/icon/yd.png" class="l"></image>
+              <text>预订</text>
+              <image src="/images/icon/r.png" class="r"></image>
+            </view>
+            <view class="info-one" style="border-bottom:1px solid #ddd">
+              <image src="/images/icon/sz.png" class="l"></image>
+              <text>设置</text>
+              <image src="/images/icon/r.png" class="r"></image>
+            </view>
+          </view>
+          <view class="outlogin" catchtap="outlogin">退出登录</view>
+        </view>
+        <view class="nologin" wx:else>
+          <view class="info-main">
+            <image src="/images/icon/unlogin.png" class="unlogin"></image>
+            <text class="unlogin-text" catchtap="gologin">Please Login</text>
+            <image src="/images/icon/right.png" class="right" catchtap="gologin"></image>
+          </view>
+          <view class="plogin">登录开启更多功能</view>
+        </view>
       </view>
-      <view class="info-list">
-        <view class="info-one" catchtap="goprofile">
-          <image src="/images/icon/gr.png" class="l"></image>
-          <text>个人资料</text>
-          <image src="/images/icon/r.png" class="r"></image>
-        </view>
-        <view class="info-one">
-          <image src="/images/icon/js.png" class="l"></image>
-          <text>已借图书</text>
-          <image src="/images/icon/r.png" class="r"></image>
-        </view>
-        <view class="info-one" catchtap="gogood">
-          <image src="/images/icon/dz.png" class="l"></image>
-          <text>我的点赞</text>
-          <image src="/images/icon/r.png" class="r"></image>
-        </view>
-        <view class="info-one" catchtap="gocollect">
-          <image src="/images/icon/sc.png" class="l"></image>
-          <text>我的收藏</text>
-          <image src="/images/icon/r.png" class="r"></image>
-        </view>
-        <view class="info-one" catchtap="tap_ch">
-          <image src="/images/icon/gw.png" class="l"></image>
-          <text>借书车</text>
-          <image src="/images/icon/r.png" class="r"></image>
-        </view>
-        <view class="info-one">
-          <image src="/images/icon/yd.png" class="l"></image>
-          <text>预订</text>
-          <image src="/images/icon/r.png" class="r"></image>
-        </view>
-        <view class="info-one" style="border-bottom:1px solid #ddd">
-          <image src="/images/icon/sz.png" class="l"></image>
-          <text>设置</text>
-          <image src="/images/icon/r.png" class="r"></image>
-        </view>
-      </view>
-      <view class="outlogin" catchtap="outlogin">退出登录</view>
     </view>
-    <view class="nologin" wx:else>
-      <view class="info-main">
-        <image src="/images/icon/unlogin.png" class="unlogin"></image>
-        <text class="unlogin-text" catchtap="gologin">Please Login</text>
-        <image src="/images/icon/right.png" class="right" catchtap="gologin"></image>
-      </view>
-      <view class="plogin">登录开启更多功能</view>
-    </view>
-  </view>
-</view>
   </view>
 </view>

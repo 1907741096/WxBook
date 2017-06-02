@@ -35,8 +35,11 @@ Page({
           util.http(url, that.processYunData, 'get');
         }
       },
-      fail(res) {
-
+      fail() {
+        wx.showToast({
+          title: "未识别出二维码",
+          image: "/images/icon/x.png"
+        })
       }
     })
   },

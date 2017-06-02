@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/info/info",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
@@ -7,7 +8,7 @@
     "pages/detail/detail",
     "pages/info/login/login",
     "pages/info/reg/reg",
-    "pages/info/info",
+   
     "pages/info/profile/profile",
     "pages/info/good/good",
     "pages/info/collect/collect",

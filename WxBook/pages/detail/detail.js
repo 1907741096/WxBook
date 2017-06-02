@@ -13,7 +13,9 @@ Page({
     book: {},
     others:{},
     good:false,
-    collect:false
+    collect:false,
+    cart: false,
+    reserve: false
   },
 
   onLoad: function (options) {
@@ -37,6 +39,30 @@ Page({
       })
       var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyid&id=" + bookId;
       util.http(url, this.processData, 'GET');
+    }
+  },
+  changecart: function () {
+    var url = app.globalData.http + "wxbook/api.php?c=cart&a=changeCart&userid=" + this.data.id + "&bookid=" + this.data.book['id'];
+    var title;
+    if(this.data.cart){
+      title="取消成功";
+    }else{
+      title="加入成功";+
+    }
+    wx.showToast({
+      title: title,
+    })
+    util.http(url, this.processCart, 'GET');
+  },
+  processCart: function (data) {
+    if (data) {
+      this.setData({
+        cart: true
+      })
+    } else {
+      this.setData({
+        cart: false
+      })
     }
   },
   changegood:function(){
@@ -120,9 +146,6 @@ Page({
     if (data['author_intro'].length > 60) {
       data['author_intro'] = data['author_intro'].substring(0, 60) + "...";
     }
-    // if (auhtor_intro.length > 60) {
-    //   data['auhtor_intro'] = auhtor_intro.substring(0, 60) + "...";
-    // }
 
     var url =app.globalData.http+
     "wxbook/api.php?c=book&a=getbookbytag&tag="+data['tags'].substring(0,1)+
@@ -140,6 +163,8 @@ Page({
       util.http(goodurl, this.processGood, 'GET');
       var collecturl = app.globalData.http + "wxbook/api.php?c=collect&a=checkCollect&userid=" + this.data.id + "&bookid=" + data['id'];
       util.http(collecturl, this.processCollect, 'GET');
+      var carturl = app.globalData.http + "wxbook/api.php?c=cart&a=checkCart&userid=" + this.data.id + "&bookid=" + data['id'];
+      util.http(carturl, this.processCart, 'GET');
     }
   },
   processYunOthers: function (data) {

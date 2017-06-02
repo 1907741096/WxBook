@@ -14,7 +14,8 @@ Page({
     endmark: 0,
     windowWidth: wx.getSystemInfoSync().windowWidth,
     staus: 1,
-    translate: ''
+    translate: '',
+    carts:{}
   },
 
   /**
@@ -42,11 +43,42 @@ Page({
       this.setData({
         islogin: true
       });
+      var url = app.globalData.http + "wxbook/api.php?c=cart&a=getcartbyuserid&userid=" + id;
+      util.http(url, this.processCart, 'get');
     } else {
       this.setData({
         islogin: false
       });
     }
+  },
+  processCart: function (data) {
+    if (!data) {
+      return;
+    }
+
+    for (var i = 0; i < data.length; i++) {
+      if (data[i]['title'].length > 7) {
+        data[i]['title'] = data[i]['title'].substring(0, 7) + "...";
+      }
+    }
+    this.setData({
+      carts: data
+    });
+  },
+  deletecart:function(event){
+    var id = event.currentTarget.dataset.id;
+    var url = app.globalData.http + "wxbook/api.php?c=cart&a=deleteCartById&id=" + id;
+    util.http(url, this.processDelete, 'GET');
+  },
+  processDelete:function(data){
+    var url = app.globalData.http + "wxbook/api.php?c=cart&a=getcartbyuserid&userid=" + wx.getStorageSync('id');
+    util.http(url, this.processCart, 'get');
+  },
+  onbookTap: function (event) {
+    var id = event.currentTarget.dataset.bookid;
+    wx.navigateTo({
+      url: "../detail/detail?id=" + id,
+    })
   },
   tap_ch: function (e) {
     if (this.data.open) {
@@ -172,5 +204,55 @@ Page({
     wx.navigateTo({
       url: 'collect/collect',
     })
+  },
+  scancode:function(){
+    var that = this;
+    wx.scanCode({
+      onlyFromCamera: true,
+      success(res) {
+        if(res.result.length==13){
+          var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyisbn&isbn=" + res.result;
+        }else{
+          var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyid&id=" + res.result;
+        }
+        util.http(url, that.addCart, 'get');
+      },
+      fail(){
+        wx.showToast({
+          title: "未识别出二维码",
+          image: "/images/icon/x.png"
+        })
+      }
+    })
+  },
+  addCart:function(data){
+    var that=this;
+    if(data){
+      var carts = that.data.carts;
+      for(var i=0;i<carts.length;i++){
+        if(data['bookid']==carts[i].bookid){
+          wx.showToast({
+            title: "请勿重复添加",
+            image: "/images/icon/x.png"
+          })
+          return;
+        }
+      }
+      wx.showModal({
+        title: '扫码成功',
+        content: '是否加入借书车?',
+        success(res){
+          if(res.confirm){
+            var url = app.globalData.http + "wxbook/api.php?c=cart&a=changeCart&userid=" + wx.getStorageSync('id') + "&bookid=" + data['id'];
+            util.http(url, that.processDelete, 'GET');
+          }
+        }
+      })
+    }else{
+      wx.showToast({
+        title:"未找到该图书",
+        image:"/images/icon/x.png"
+      })
+    }
   }
 })

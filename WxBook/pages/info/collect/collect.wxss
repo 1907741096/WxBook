@@ -1,1 +1,9 @@
-/* pages/info/collect/collect.wxss */
+@import "../../template/template-book/template-book.wxss";
+.single-view-container{
+    float: left;
+    margin-bottom: 40rpx;
+}
+.grid-container{
+    height: 100%;
+    margin: 0 0 40rpx 0;
+}

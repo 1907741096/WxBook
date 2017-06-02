@@ -113,8 +113,14 @@
         <text>收藏</text>
       </view>
     </view>
-    <view class="addcart">加入借书车</view>
-    <view class="yuding">在线预定</view>
+    <view catchtap="changecart">
+      <view class="addcart" wx:if="{{cart}}">取消加入借书车</view>
+      <view class="addcart" wx:else>加入借书车</view>
+    </view>
+    <view class="yuding" wx:if="{{reserve}}">取消预定</view>
+    <view class="yuding" wx:else>在线预定</view>
   </view>
-  <view class="yununder" wx:else></view>
+  <view class="yununder" wx:else>
+    
+  </view>
 </view>
