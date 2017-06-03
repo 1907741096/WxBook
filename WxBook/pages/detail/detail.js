@@ -47,7 +47,7 @@ Page({
     if(this.data.cart){
       title="取消成功";
     }else{
-      title="加入成功";+
+      title="加入成功";
     }
     wx.showToast({
       title: title,
@@ -165,6 +165,8 @@ Page({
       util.http(collecturl, this.processCollect, 'GET');
       var carturl = app.globalData.http + "wxbook/api.php?c=cart&a=checkCart&userid=" + this.data.id + "&bookid=" + data['id'];
       util.http(carturl, this.processCart, 'GET');
+      var reserveurl = app.globalData.http + "wxbook/api.php?c=reserve&a=checkReserve&userid=" + this.data.id + "&bookid=" + data['id'];
+      util.http(reserveurl, this.processReserve, 'GET');
     }
   },
   processYunOthers: function (data) {
@@ -244,4 +246,41 @@ Page({
       isa: true
     })
   },
+  processReserve: function (data) {
+    if (data) {
+      this.setData({
+        reserve: true
+      })
+    } else {
+      this.setData({
+        reserve: false
+      })
+    }
+  },
+  changereserve:function(){
+    var url = app.globalData.http + "wxbook/api.php?c=reserve&a=changeReserve&userid=" + this.data.id + "&bookid=" + this.data.book['id'];
+    util.http(url, this.processReserveData, 'GET');
+  },
+  processReserveData:function(data){
+    if(data.status==0){
+      wx.showToast({
+        title: data.message,
+        image: '/images/icon/x.png'
+      })
+    }else{
+      if(data.message=="预订成功"){
+        this.setData({
+          reserve:true
+        })
+      }else{
+        this.setData({
+          reserve:false
+        })
+      }
+      wx.showToast({
+        title: data.message,
+      })
+    }
+  }
+
 })

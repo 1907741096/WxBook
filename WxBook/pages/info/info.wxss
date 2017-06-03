@@ -49,13 +49,13 @@ page{
 .setting{
   float: left;
   width: 50rpx;
-  height: 50rpx;
+  height: 40rpx;
   margin: 15rpx 30rpx;
 }
 .message{
   float: right;
-  width: 60rpx;
-  height: 50rpx;
+  width: 50rpx;
+  height: 40rpx;
   margin: 15rpx 30rpx;
 }
 .info-main{
