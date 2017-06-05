@@ -1,4 +1,4 @@
- <import src="../template/template-star/template-star.wxml" />
+<import src="../template/template-star/template-star.wxml" />
 <import src="../template/template-book/template-book.wxml" />
 <view class="container-main">
   <image class="head-img" src="{{book.image}}" mode="aspectFill" />
@@ -123,6 +123,6 @@
     </view>
   </view>
   <view class="yununder" wx:else>
-    
+    图书馆暂无该书籍，推荐到图书馆
   </view>
 </view>

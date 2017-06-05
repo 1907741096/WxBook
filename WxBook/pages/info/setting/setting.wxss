@@ -1,1 +1,19 @@
-/* pages/info/setting/setting.wxss */
+.setting{
+  width: 100%;
+}
+.setting-one{
+  width: 710rpx;
+  height: 100rpx;
+  margin: 0 auto;
+}
+.setting-one text{
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 14px;
+  color: #444;
+}
+.setting-one switch{
+  float: right;
+  margin-top: 20rpx;
+}

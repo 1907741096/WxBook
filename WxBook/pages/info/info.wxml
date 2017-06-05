@@ -56,12 +56,12 @@
               <text>借书车</text>
               <image src="/images/icon/r.png" class="r"></image>
             </view>
-            <view class="info-one">
+            <view class="info-one" catchtap="goreserve">
               <image src="/images/icon/yd.png" class="l"></image>
               <text>预订</text>
               <image src="/images/icon/r.png" class="r"></image>
             </view>
-            <view class="info-one" style="border-bottom:1px solid #ddd">
+            <view class="info-one" style="border-bottom:1px solid #ddd" catchtap="gosetting">
               <image src="/images/icon/sz.png" class="l"></image>
               <text>设置</text>
               <image src="/images/icon/r.png" class="r"></image>

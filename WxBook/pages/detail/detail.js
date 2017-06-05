@@ -268,7 +268,7 @@ Page({
         image: '/images/icon/x.png'
       })
     }else{
-      if(data.message=="预订成功"){
+      if(data.message=="预订成功，请在三天内前来借取"){
         this.setData({
           reserve:true
         })
@@ -278,6 +278,7 @@ Page({
         })
       }
       wx.showToast({
+        duration:1500,
         title: data.message,
       })
     }

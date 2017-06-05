@@ -1,5 +1,5 @@
 {
-  "pages": [
+  "pages": ["pages/info/setting/setting",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",

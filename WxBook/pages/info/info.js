@@ -254,5 +254,15 @@ Page({
         image:"/images/icon/x.png"
       })
     }
+  },
+  goreserve:function(){
+    wx.navigateTo({
+      url: 'reserve/reserve',
+    })
+  },
+  gosetting:function(){
+    wx.navigateTo({
+      url: 'setting/setting',
+    })
   }
 })

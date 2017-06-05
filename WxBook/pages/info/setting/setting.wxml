@@ -1,2 +1,6 @@
-<!--pages/info/setting/setting.wxml-->
-<text>pages/info/setting/setting.wxml</text>
+<view class="setting">
+  <view class="setting-one">
+    <text>自动推送</text>
+    <switch type="switch" checked color="#333" bindchange="changepush"/>
+  </view>
+</view>
