@@ -1,2 +1,45 @@
-<!--pages/info/borrow/borrow.wxml-->
-<text>pages/info/borrow/borrow.wxml</text>
+<!--index.wxml-->
+<view class="b_container">
+  <view class="b_book">
+    <image src="/images/background.jpg"></image>
+    <view class="b_text">
+      <text class="tlt">白夜行</text>
+      <view class="b_evaluate" bindtap="bindViewTap"><text>评价</text></view>
+    </view>
+    <view class="b_status">
+      <view class="b_time">
+        <text>借阅时间：2017.5.10\n</text>
+        <text>归还时间：2017.6.10</text>
+      </view>
+      <text class="b_expire">还有30天到期</text>
+    </view>  
+  </view>
+  <view class="b_book">
+    <image src="/images/background.jpg"></image>
+    <view class="b_text">
+      <text class="tlt">《白夜行》</text>
+      <view class="b_evaluate" bindtap="bindViewTap"><text>评价</text></view>
+    </view>
+    <view class="b_status">
+      <view class="b_time">
+        <text>借阅时间：2017.5.10\n</text>
+        <text>归还时间：2017.5.30</text>
+      </view>
+      <text class="b_expire due" >已到期</text>
+    </view>  
+  </view>
+  <view class="b_book finish">
+    <image src="/images/background.jpg"></image>
+    <view class="b_text">
+      <text class="tlt">《白夜行》</text>
+      <view class="b_evaluate"bindtap="bindViewTap"><text>评价</text></view>
+    </view>
+    <view class="b_status">
+      <view class="b_time">
+        <text>借阅时间：2017.5.10\n</text>
+        <text>归还时间：2017.5.30</text>
+      </view>
+      <text class="b_expire">已归还</text>
+    </view>  
+  </view>
+</view>

@@ -57,7 +57,7 @@
 }
 
 .placeholder {
-  font-size: 14px;
+  font-size: 28rpx;
   color: #d1d1d1;
   margin-left: 20rpx;
 }
@@ -98,4 +98,16 @@
   margin-top: 300rpx;
   color: #999;
 }
-
+.searchLS{
+  width: 690rpx;
+  margin: 0 auto;
+}
+.search-content{
+  padding: 10rpx 20rpx;
+  background: #eee;
+  color: #999;
+  float: left;
+  margin: 10rpx;
+  border-radius: 3px;
+  font-size: 26rpx;
+}

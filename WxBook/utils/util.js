@@ -74,11 +74,24 @@ function formatTime(date) {
 
   return [month, day].map(formatNumber).join('-');
 }
+function formatTime1(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+
+
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute].map(formatNumber).join(':');
+}
 module.exports = {
   convertToStarsArray: convertToStarsArray,
   http: http,
   convertToCastString: convertToCastString,
   convertToCastInfos: convertToCastInfos,
   sleep:sleep,
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatTime1: formatTime1
 }

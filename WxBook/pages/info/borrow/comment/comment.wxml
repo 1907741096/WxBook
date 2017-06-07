@@ -1,0 +1,21 @@
+<view class="container">
+ <view class="b_book">
+    <image src="/images/background.jpg"></image>
+    <view class="b_text">
+      <text class="tlt">《白夜夜夜夜夜夜行》</text>
+    </view>
+    <view class="b_status">
+      <view class="b_time">
+        <text>作者:\n</text>
+        <text>出版社:</text>
+      </view>
+    </view>  
+  </view>
+  <view class="status">
+    <text>评分:</text>
+    <slider bindchange="" min="0" max="10" show-value value="10" activeColor="#666"/>
+  </view>
+  <textarea class="content" placeholder="请输入评论内容"/>
+  <view class="sub"><text>确定</text></view>
+  
+</view>

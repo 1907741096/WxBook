@@ -1,0 +1,70 @@
+.container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.b_book{
+  width: 92%;
+  height: 300rpx;
+  text-align: left;
+  margin: 10rpx auto;
+  position: relative;
+}
+.b_book image{
+  width: 200rpx;
+  height: 300rpx;
+  float: left;
+  margin-right: 20rpx;
+  border: 2rpx;
+  border-radius: 5px;
+}
+.b_book .b_text{
+  height: 200rpx;
+}
+.b_book .b_text .tlt{
+  font-size: 40rpx;
+}
+
+.b_book .b_status{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.b_book .b_status .b_time{
+  font-size: 30rpx;
+  margin-left: 25rpx;
+}
+.status{
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 34rpx;
+  margin: 20rpx auto;
+}
+.status text{
+  width: 20%;
+  float: left;
+}
+.content{
+  width: 90%;
+  height: 200rpx;
+  font-size: 28rpx;
+  margin: 10rpx auto;
+  padding: 10rpx;
+  border-radius: 5rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.2);
+}
+.sub{
+  width: 90%;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin: 10rpx auto;
+  padding: 10rpx;
+  border-radius: 5rpx;
+  background-color: #444;
+  text-align: center;
+  color: white;
+  font-size: 30rpx;
+  letter-spacing: 2px;
+}

@@ -103,6 +103,7 @@ Page({
           "Content-Type": "multipart/form-data"
         },
         success: function (res) {
+          console.log(res);
         }
       })
     }

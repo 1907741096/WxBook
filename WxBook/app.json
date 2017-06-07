@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/info/setting/setting",
+  "pages": [
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
@@ -12,6 +12,7 @@
     "pages/info/good/good",
     "pages/info/collect/collect",
     "pages/info/borrow/borrow",
+    "pages/info/borrow/comment/comment",
     "pages/info/reserve/reserve",
     "pages/info/setting/setting"
   ],

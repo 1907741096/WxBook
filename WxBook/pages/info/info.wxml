@@ -36,7 +36,7 @@
               <text>个人资料</text>
               <image src="/images/icon/r.png" class="r"></image>
             </view>
-            <view class="info-one">
+            <view class="info-one" catchtap="goborrow">
               <image src="/images/icon/js.png" class="l"></image>
               <text>已借图书</text>
               <image src="/images/icon/r.png" class="r"></image>

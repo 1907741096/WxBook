@@ -1,1 +1,68 @@
-/* pages/info/borrow/borrow.wxss */
+b_container{
+  width: 100%;
+  padding: 5rpx;
+}
+text{
+  font-family: "Microsoft yahei";
+}
+.b_book{
+  width: 93%;
+  height: 230rpx;
+  text-align: left;
+  padding: 20rpx;
+  margin: 10rpx auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.b_book image{
+  width: 160rpx;
+  height: 230rpx;
+  float: left;
+  margin-right: 20rpx;
+  border: 2rpx;
+}
+.b_book .b_text{
+  height: 170rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+.b_book .b_text .tlt{
+  font-size: 36rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.b_evaluate{
+  font-size: 32rpx;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 2rpx 3rpx 10rpx rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+  float: right;
+}
+.b_evaluate:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.b_book .b_status{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.8)
+}
+.b_book .b_status .b_time{
+  font-size: 24rpx;
+}
+.b_book .b_status .b_expire{
+  font-size: 32rpx;
+}
+.due{
+  color: orangered;
+}
+.finish{
+  opacity: 0.7;
+}

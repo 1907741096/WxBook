@@ -6,15 +6,25 @@
   </view>
   <view class="search">
     <icon type="search" class="search-img" size="13" color="#405f80"></icon>
-    <input type="text" placeholder="请输入书名关键字、首字母、编号进行搜索" placeholder-class="placeholder" bindfocus="onBindFocus" bindinput="onBindInput" />
+    <input type="text" placeholder="请输入书名关键字、首字母、编号进行搜索" placeholder-class="placeholder" bindfocus="onBindFocus" bindinput="onBindInput" bindconfirm="onSearch" />
     <image wx:if="{{searchPanelShow}}" src="/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
   </view>
   <view class="search-panel" wx:if="{{searchPanelShow}}">
-    <block wx:for="{{searchResult}}" wx:for-item="book">
-      <view class="single-view-container">
-        <template is="bookTemplate" data="{{...book}}" />
+    <view wx:if="{{localEmpty}}" class="searchLS">
+      <view class="change">
+        <text catchtap="deleteSearch">清除所有历史记录</text>
       </view>
-    </block>
+      <block wx:for="{{searchLS}}" wx:for-item="search">
+          <view class="search-content">{{search.content}}</view>
+      </block>
+    </view>
+    <view wx:else>
+      <block wx:for="{{searchResult}}" wx:for-item="book">
+        <view class="single-view-container">
+          <template is="bookTemplate" data="{{...book}}" />
+        </view>
+      </block>
+    </view>
   </view>
   <view class="grid-container" wx:else catchtap="onChange">
     <view class="change">
@@ -35,7 +45,7 @@
   </view>
   <view class="search">
     <icon type="search" class="search-img" size="13" color="#405f80"></icon>
-    <input type="text" placeholder="请输入书名、作者或标签等关键字进行搜索" placeholder-class="placeholder" bindconfirm="onYunSearch" confirm-type="done"/>
+    <input type="text" placeholder="请输入书名、作者或标签等关键字进行搜索" placeholder-class="placeholder" bindconfirm="onYunSearch" confirm-type="done" />
   </view>
   <view class="grid-container">
     <view class="text-yun" wx:if="{{yun}}">欢迎使用云搜索</view>

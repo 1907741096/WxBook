@@ -40,7 +40,7 @@
       </text>
     </view>
   </view>
-  <image class="book-img-top" src="{{book.image}}" data-src="{{book.image}}" catchtap="viewBookPostImg"/>
+  <image class="book-img-top" src="{{book.image}}" data-src="{{book.image}}" catchtap="viewBookPostImg" />
   <view class="summary">
     <view class="original-title">
       <text>{{book.title}}</text>
@@ -91,38 +91,62 @@
       </block>
     </view>
   </scroll-view>
+  <view wx:if="{{local}}">
+  <view class="hr"></view>
+  <view class="xgtj">用户评论</view>
+    <view wx:if="{{iscomment}}">
+      <block wx:for="{{comment}}" wx:for-item="c">
+        <view class="comment-one">
+          <view class="comment-face">
+            <image src="{{c.face}}" class="face"></image>
+            <text class="comment-name">{{c.name}}</text>
+            <template is="starTemplate" data="{{stars:c.star,rating:c.rating}}"/>
+            <text class="comment-time">{{c.time}}</text>
+          </view>
+          <view class="comment-content">{{c.content}}</view>
+        </view>
+      </block>
+    </view>
+    <view class="" wx:else>
+    
+    </view>
+  </view>
   <view class="under"></view>
-  <view class="localunder" wx:if="{{local}}">
-    <view class="under-one" catchtap="changegood">
-      <view wx:if="{{good}}">
-        <image src="/images/icon/ydz.png"></image>
-        <text>已点赞</text>
+  <view wx:if="{{islogin}}">
+    <view class="localunder" wx:if="{{local}}">
+      <view class="under-one" catchtap="changegood">
+        <view wx:if="{{good}}">
+          <image src="/images/icon/ydz.png"></image>
+          <text>已点赞</text>
+        </view>
+        <view wx:else>
+          <image src="/images/icon/dz.png"></image>
+          <text>点赞</text>
+        </view>
       </view>
-      <view wx:else>
-        <image src="/images/icon/dz.png"></image>
-        <text>点赞</text>
+      <view class="under-one" style="border:none;" catchtap="changecollect">
+        <view wx:if="{{collect}}">
+          <image src="/images/icon/ysc.png"></image>
+          <text>已收藏</text>
+        </view>
+        <view wx:else>
+          <image src="/images/icon/sc.png"></image>
+          <text>收藏</text>
+        </view>
+      </view>
+      <view catchtap="changecart">
+        <view class="addcart" wx:if="{{cart}}">取消加入借书车</view>
+        <view class="addcart" wx:else>加入借书车</view>
+      </view>
+      <view catchtap="changereserve">
+        <view class="yuding" wx:if="{{reserve}}">取消预定</view>
+        <view class="yuding" wx:else>在线预定</view>
       </view>
     </view>
-    <view class="under-one" style="border:none;" catchtap="changecollect">
-      <view wx:if="{{collect}}">
-        <image src="/images/icon/ysc.png"></image>
-        <text>已收藏</text>
-      </view>
-      <view wx:else>
-        <image src="/images/icon/sc.png"></image>
-        <text>收藏</text>
-      </view>
-    </view>
-    <view catchtap="changecart">
-      <view class="addcart" wx:if="{{cart}}">取消加入借书车</view>
-      <view class="addcart" wx:else>加入借书车</view>
-    </view>
-    <view catchtap="changereserve">
-      <view class="yuding" wx:if="{{reserve}}">取消预定</view>
-      <view class="yuding" wx:else>在线预定</view>
+    <view wx:else>
+      <view class="yununder" wx:if="{{have}}">图书馆已有该图书</view>
+      <view class="yununder" catchtap="changecommend" wx:else>图书馆暂无该书籍，推荐到图书馆</view>
     </view>
   </view>
-  <view class="yununder" wx:else>
-    图书馆暂无该书籍，推荐到图书馆
-  </view>
+  <view wx:else class="yununder">登录获取更多操作哦</view>
 </view>

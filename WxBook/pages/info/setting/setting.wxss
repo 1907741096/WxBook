@@ -17,3 +17,14 @@
   float: right;
   margin-top: 20rpx;
 }
+.time{
+  float: right;
+  margin-right: 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 14px;
+  color: #666;
+}
+radio{
+  float: right;
+}

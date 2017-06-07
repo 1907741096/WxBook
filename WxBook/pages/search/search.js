@@ -11,7 +11,9 @@ Page({
     book: {},
     totalCount: 0,
     yunUrl: "",
-    isEmpty: true
+    isEmpty: true,
+    localEmpty: true,
+    searchLS:{}
   },
   onLoad: function (options) {
     var n = parseInt(Math.random() * 260, 10);
@@ -19,6 +21,18 @@ Page({
     this.data.requestUrl = url;
     url += "bytag&tag=&start=" + n + "&count=6";
     util.http(url, this.processData, 'get');
+    if (wx.getStorageSync('id')) {
+      var searchurl = app.globalData.http + "wxbook/api.php?c=search&a=getSearchByUserId&userid=" + wx.getStorageSync('id');
+      util.http(searchurl,this.processSearchLS,'GET');
+    }
+  },
+  processSearchLS:function(data){
+    if(data){
+      this.setData({
+        localEmpty:true,
+        searchLS:data
+      })
+    }
   },
   onScanCode: function () {
     var that = this;
@@ -26,7 +40,7 @@ Page({
       onlyFromCamera: true,
       success(res) {
         if (that.data.local) {
-          var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyisbn&isbn" + res.result;
+          var url = app.globalData.http + "wxbook/api.php?c=book&a=getbookbyisbn&isbn=" + res.result;
           that.data.searchPanelShow = true;
           util.http(url, that.processData, 'get');
         } else {
@@ -146,6 +160,7 @@ Page({
     var value = event.detail.value;
     if (value == '') {
       this.setData({
+        localEmpty: true,
         searchResult: []
       });
     } else {
@@ -166,6 +181,7 @@ Page({
     }
 
     this.setData({
+      localEmpty: false,
       searchResult: data
     });
   },
@@ -184,8 +200,8 @@ Page({
       local: true
     })
   },
-  onYunSearch: function () {
-    var value = event.data.msg.data.data.data.detail['value'];
+  onYunSearch: function (event) {
+    var value = event.detail.value;
     if (value == '') {
       this.setData({
         yunResult: [],
@@ -226,4 +242,29 @@ Page({
       wx.showNavigationBarLoading();
     }
   },
+  onSearch: function (event) {
+    if (wx.getStorageSync('id')) {
+      var value = event.detail.value;
+      var url = app.globalData.http + 'wxbook/api.php?c=search&a=addSearch&userid=' + wx.getStorageSync('id') + '&content=' + value;
+      wx.request({
+        url: url,
+        method: 'GET',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+
+        }
+      })
+    }
+  },
+  deleteSearch:function(){
+    var url = app.globalData.http + "wxbook/api.php?c=search&a=deleteSearchByUserId&userid=" + wx.getStorageSync('id');
+    util.http(url, this.processDelete, 'GET');
+  },
+  processDelete:function(data){
+    this.setData({
+      searchLS: {}
+    })
+  }
 })

@@ -206,6 +206,13 @@ Page({
     })
   },
   scancode:function(){
+    if(!this.data.islogin){
+      wx.showToast({
+        title: "请先登录",
+        image: "/images/icon/x.png"
+      })
+      return;
+    }
     var that = this;
     wx.scanCode({
       onlyFromCamera: true,
@@ -263,6 +270,11 @@ Page({
   gosetting:function(){
     wx.navigateTo({
       url: 'setting/setting',
+    })
+  },
+  goborrow:function(){
+    wx.navigateTo({
+      url: 'borrow/borrow',
     })
   }
 })

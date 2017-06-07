@@ -42,7 +42,7 @@
 .tag-t{
   margin: 8rpx;
   margin-left: 20rpx;
-  font-size: 12px;
+  font-size: 24rpx;
   text-align: center;
   color: #FFF;
   padding: 10rpx;
@@ -50,7 +50,7 @@
 }
 .tag{
   margin: 8rpx;
-  font-size: 12px;
+  font-size: 24rpx;
   text-align: center;
   color: #444;
   padding: 10rpx;
@@ -59,7 +59,7 @@
 .tag-g{
   margin: 8rpx;
   margin-right: 20rpx;
-  font-size: 12px;
+  font-size: 24rpx;
   text-align: center;
   color: #999;
   padding: 10rpx;
