@@ -19,13 +19,16 @@
   border: 2rpx;
   border-radius: 5px;
 }
-.b_book .b_text{
-  height: 200rpx;
-}
 .b_book .b_text .tlt{
-  font-size: 40rpx;
+  font-size:36rpx;
 }
-
+.b_book .b_text .a{
+  font-size:26rpx;
+  color: #666;
+}
+.a text{
+  color: #333;
+}
 .b_book .b_status{
   display: flex;
   justify-content: space-between;
@@ -56,15 +59,17 @@
   border: 1rpx solid rgba(0, 0, 0, 0.2);
 }
 .sub{
-  width: 90%;
-  height: 30rpx;
-  line-height: 30rpx;
+  width: 700rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   margin: 10rpx auto;
-  padding: 10rpx;
   border-radius: 5rpx;
   background-color: #444;
   text-align: center;
   color: white;
   font-size: 30rpx;
   letter-spacing: 2px;
+}
+form{
+  width: 100%;
 }

@@ -180,7 +180,8 @@ Page({
     wx.removeStorageSync('id');
     this.setData({
       islogin: false,
-      user: {}
+      user: {},
+      carts:{}
     })
   },
   viewBookPostImg: function (event) {
@@ -276,5 +277,17 @@ Page({
     wx.navigateTo({
       url: 'borrow/borrow',
     })
+  },
+  gomessage:function(){
+    if(wx.getStorageSync('id')){
+      wx.navigateTo({
+        url: 'message/message',
+      })
+    }else{
+      wx.showToast({
+        title:'请先登录',
+        image:'/images/icon/x.png'
+      })
+    }
   }
 })

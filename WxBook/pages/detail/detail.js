@@ -368,7 +368,7 @@ Page({
   onReachBottom: function (event) {
     if (this.data.local) {
       var nextUrl = this.data.requestUrl +
-        "&start=" + this.data.totalCount + "&count=1";
+        "&start=" + this.data.totalCount + "&count=10";
       util.http(nextUrl, this.processComment)
       wx.showNavigationBarLoading();
     }

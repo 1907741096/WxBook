@@ -1,0 +1,16 @@
+<view class="message">
+  <view class="message-one">
+    <view class="message-face">
+      <image src="/images/background.jpg"></image>
+    </view>
+    <view class="message-right">
+      <view class="message-top">
+        <view class="message-title">借阅伴侣官方助手</view>
+        <view class="message-time">10分钟前</view>
+      </view>
+      <view class="message-bottom">
+        <text class="message-content">这是一个test...</text>
+      </view>
+    </view>
+  </view>
+</view>

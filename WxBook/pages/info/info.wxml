@@ -22,7 +22,7 @@
       <view class="info">
         <view class="info-top">
           <image src="/images/icon/cart.png" class="setting" catchtap="tap_ch"></image>
-          <image src="/images/icon/message.png" class="message"></image>
+          <image src="/images/icon/message.png" class="message" catchtap="gomessage"></image>
         </view>
         <view class="classname" wx:if="{{islogin}}">
           <view class="info-main" catchtap="goprofile">

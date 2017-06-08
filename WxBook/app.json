@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/info/message/message",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",

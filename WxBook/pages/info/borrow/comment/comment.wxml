@@ -1,21 +1,31 @@
 <view class="container">
  <view class="b_book">
     <image src="/images/background.jpg"></image>
-    <view class="b_text">
-      <text class="tlt">《白夜夜夜夜夜夜行》</text>
+    <view class="b_text" style="margin-bottom:20rpx;">
+      <text class="tlt">{{book.title}}</text>
     </view>
-    <view class="b_status">
-      <view class="b_time">
-        <text>作者:\n</text>
-        <text>出版社:</text>
-      </view>
-    </view>  
+    <view class="b_text">
+      <text class="a">作者 : <text>{{book.author}}</text></text>
+    </view>
+    <view class="b_text">
+      <text class="a">出版社 : <text>{{book.publisher}}</text></text>
+    </view>
+    <view class="b_text">
+      <text class="a">出版年 : <text>{{book.pubdate}}</text></text>
+    </view>
+    <view class="b_text">
+      <text class="a">定价 : <text>{{book.price}}元</text></text>
+    </view>
+    <view class="b_text">
+      <text class="a">ISBN : <text>{{book.isbn}}</text></text>
+    </view>
   </view>
-  <view class="status">
-    <text>评分:</text>
-    <slider bindchange="" min="0" max="10" show-value value="10" activeColor="#666"/>
-  </view>
-  <textarea class="content" placeholder="请输入评论内容"/>
-  <view class="sub"><text>确定</text></view>
-  
+  <form bindsubmit="addcomment">
+    <view class="status">
+      <text style="text-align:bottom;">评分:</text>
+      <slider bindchange="" min="0" max="10" show-value value="10" activeColor="#333" bindchange="onslider" name="rating"/>
+    </view>
+    <textarea class="content" placeholder="请输入评论内容（不超过140字）" name="content"/>
+    <button class="sub" formType="submit">确定</button>
+  </form>
 </view>

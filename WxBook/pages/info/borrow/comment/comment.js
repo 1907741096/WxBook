@@ -1,66 +1,57 @@
-// pages/comment/comment.js
+var app = getApp();
+var util = require('../../../../utils/util.js');
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    bookid:'',
+    userid:'',
+    book:{}
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    var bookid=options.bookid;
+    var userid=wx.getStorageSync('id');
+    this.setData({
+      bookid:bookid,
+      userid:userid
+    })
+    var url = app.globalData.http + "wxbook/api.php?c=book&a=getbook&id=" + bookid;
+    util.http(url, this.processData, 'GET');
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  processData:function(data){
+    if(!data){
+      return;
+    }
+    this.setData({
+      book:data
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  onslider:function(event){
+    
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  addcomment:function(event){
+    var data=event.detail.value;
+    data['userid']=this.data.userid;
+    data['bookid']=this.data.book['bookid'];
+    var url=app.globalData.http+'wxbook/api.php?c=comment&a=addcomment';
+    util.http(url,this.processComment,'POST',data);
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  processComment:function(data){
+    if(data){
+      wx.showToast({
+        title: '评论成功',
+        duration: 1500,
+        success: function () {
+          util.sleep(1000);
+          wx.redirectTo({
+            url: '../borrow'
+          })
+        }
+      })
+    }else{
+      wx.showToast({
+        title: '评论失败',
+        image:'/images/icon/x.png'
+      })
+    }
   }
 })

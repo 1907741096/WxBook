@@ -1,45 +1,47 @@
 <!--index.wxml-->
 <view class="b_container">
-  <view class="b_book">
-    <image src="/images/background.jpg"></image>
+  <block wx:for="{{borrow}}" wx:for-item="brw">
+  <view class="b_book" wx:if="{{brw.status==1}}">
+    <image src="{{brw.image}}"></image>
     <view class="b_text">
-      <text class="tlt">白夜行</text>
-      <view class="b_evaluate" bindtap="bindViewTap"><text>评价</text></view>
+      <text class="tlt">{{brw.title}}</text>
+      <view class="b_evaluate" bindtap="gocomment" data-bookid="{{brw.bookid}}"><text>评价</text></view>
     </view>
     <view class="b_status">
       <view class="b_time">
-        <text>借阅时间：2017.5.10\n</text>
-        <text>归还时间：2017.6.10</text>
+        <text>借阅时间：{{brw.borrow_time}}\n</text>
+        <text>归还时间：{{brw.return_time}}</text>
       </view>
-      <text class="b_expire">还有30天到期</text>
+      <text class="b_expire">还有<text style="color:deepskyblue;">{{brw.day}}</text>天到期</text>
     </view>  
   </view>
-  <view class="b_book">
-    <image src="/images/background.jpg"></image>
+  <view class="b_book" wx:elif="{{brw.status==-1}}">
+    <image src="{{brw.image}}"></image>
     <view class="b_text">
-      <text class="tlt">《白夜行》</text>
-      <view class="b_evaluate" bindtap="bindViewTap"><text>评价</text></view>
+      <text class="tlt">{{brw.title}}</text>
+      <view class="b_evaluate" bindtap="gocomment" data-bookid="{{brw.bookid}}"><text>评价</text></view>
     </view>
     <view class="b_status">
       <view class="b_time">
-        <text>借阅时间：2017.5.10\n</text>
-        <text>归还时间：2017.5.30</text>
+        <text>借阅时间：{{brw.borrow_time}}\n</text>
+        <text>归还时间：{{brw.return_time}}</text>
       </view>
       <text class="b_expire due" >已到期</text>
     </view>  
   </view>
-  <view class="b_book finish">
-    <image src="/images/background.jpg"></image>
+  <view class="b_book finish" wx:else>
+    <image src="{{brw.image}}"></image>
     <view class="b_text">
-      <text class="tlt">《白夜行》</text>
-      <view class="b_evaluate"bindtap="bindViewTap"><text>评价</text></view>
+      <text class="tlt">{{brw.title}}</text>
+      <view class="b_evaluate"bindtap="gocomment" data-bookid="{{brw.bookid}}"><text>评价</text></view>
     </view>
     <view class="b_status">
       <view class="b_time">
-        <text>借阅时间：2017.5.10\n</text>
-        <text>归还时间：2017.5.30</text>
+        <text>借阅时间：{{brw.borrow_time}}\n</text>
+        <text>归还时间：{{brw.return_time}}</text>
       </view>
       <text class="b_expire">已归还</text>
     </view>  
   </view>
+  </block>
 </view>

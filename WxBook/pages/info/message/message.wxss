@@ -1,0 +1,52 @@
+page{
+  background-color: #f8f8f8;
+}
+.message-one{
+  width: 710rpx;
+  height: 140rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #ddd;
+}
+.message-face{
+  width: 90rpx;
+  height: 140rpx;
+  float: left;
+}
+.message-face image{
+  width: 90rpx;
+  height: 90rpx;
+  margin: 25rpx 0;
+  border-radius: 50%;
+}
+.message-right{
+  float: right;
+  width: 620rpx;
+  height: 140rpx;
+}
+.message-top{
+  width: 100%;
+  height: 45%;
+}
+.message-bottom{
+  width: 100%;
+  height: 55%;
+}
+.message-title{
+  width: 60%;
+  float: left;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.message-time{
+  float: right;
+  margin-top: 18rpx;
+  font-size: 26rpx;
+  color: #777;
+}
+.message-content{
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #777;
+}
+
