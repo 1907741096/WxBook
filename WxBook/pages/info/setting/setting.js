@@ -8,7 +8,7 @@ Page({
   data: {
     push: true,
     p: true,
-    time: ''
+    pushtime: ''
   },
 
   /**
@@ -19,7 +19,7 @@ Page({
       this.setData({
         push: wx.getStorageSync('push'),
         p: wx.getStorageSync('push'),
-        time: wx.getStorageSync('time')
+        pushtime: wx.getStorageSync('pushtime')
       })
     }
   },
@@ -37,7 +37,7 @@ Page({
       })
     }
     if (wx.getStorageSync('time') != this.data.time) {
-      var url = app.globalData.http + 'wxbook/api.php?c=user&a=updateUserByTime&id=' + wx.getStorageSync('id') + '&time=' + wx.getStorageSync('time');
+      var url = app.globalData.http + 'wxbook/api.php?c=user&a=updateUserByTime&id=' + wx.getStorageSync('id') + '&time=' + wx.getStorageSync('pushtime');
       wx.request({
         url: url,
       })
@@ -54,6 +54,6 @@ Page({
 
   radioChange: function (event) {
     var data = event.detail.value;
-    wx.setStorageSync('time', data);
+    wx.setStorageSync('pushtime', data);
   }
 })

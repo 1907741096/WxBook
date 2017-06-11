@@ -20,7 +20,7 @@
       <view class="tag" data-tag="诗歌">诗歌</view>
       <view class="tag" data-tag="童话">童话</view>
       <view class="tag" data-tag="名著">名著</view>
-      <view class="tag-g">更多</view>
+      <view class="tag-g" catchtap="gomore">更多</view>
     </view>
     <view class="tags">
       <view class="tag-t" data-tag="科技">科技</view>
@@ -30,7 +30,7 @@
       <view class="tag" data-tag="算法">算法</view>
       <view class="tag" data-tag="通信">通信</view>
       <view class="tag" data-tag="交互">交互</view>
-      <view class="tag-g">更多</view>
+      <view class="tag-g" catchtap="gomore">更多</view>
     </view>
     <view class="tags">
       <view class="tag-t" data-tag="流行">流行</view>
@@ -40,7 +40,7 @@
       <view class="tag" data-tag="科幻">科幻</view>
       <view class="tag" data-tag="武侠">武侠</view>
       <view class="tag" data-tag="奇幻">奇幻</view>
-      <view class="tag-g">更多</view>
+      <view class="tag-g" catchtap="gomore">更多</view>
     </view>
     <view class="tags">
       <view class="tag-t" data-tag="文化">文化</view>
@@ -50,7 +50,7 @@
       <view class="tag" data-tag="设计">设计</view>
       <view class="tag" data-tag="建筑">建筑</view>
       <view class="tag" data-tag="回忆录">回忆录</view>
-      <view class="tag-g">更多</view>
+      <view class="tag-g" catchtap="gomore">更多</view>
     </view>
     <view class="tags">
       <view class="tag-t" data-tag="生活">生活</view>
@@ -60,7 +60,7 @@
       <view class="tag" data-tag="美食">美食</view>
       <view class="tag" data-tag="教育">教育</view>
       <view class="tag" data-tag="健康">健康</view>
-      <view class="tag-g">更多</view>
+      <view class="tag-g" catchtap="gomore">更多</view>
     </view>
     <view class="tags">
       <view class="tag-t" data-tag="经管">经管</view>
@@ -70,7 +70,7 @@
       <view class="tag" data-tag="金融">金融</view>
       <view class="tag" data-tag="营销">营销</view>
       <view class="tag" data-tag="理财">理财</view>
-      <view class="tag-g">更多</view>
+      <view class="tag-g" catchtap="gomore">更多</view>
     </view>
   </view>
   <view class="hot-tags">

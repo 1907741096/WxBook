@@ -278,6 +278,11 @@ Page({
       url: 'borrow/borrow',
     })
   },
+  goorder: function () {
+    wx.navigateTo({
+      url: 'order/order',
+    })
+  },
   gomessage:function(){
     if(wx.getStorageSync('id')){
       wx.navigateTo({
