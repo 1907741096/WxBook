@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/info/message/message",
     "pages/index/index",
     "pages/search/search",
     "pages/session/session",
@@ -14,8 +15,6 @@
     "pages/info/borrow/borrow",
     "pages/info/borrow/comment/comment",
     "pages/info/reserve/reserve",
-    "pages/info/message/message",
-    "pages/info/order/order",
     "pages/info/setting/setting"
   ],
   "window": {

@@ -326,7 +326,6 @@ Page({
     if (data.status == 0) {
       wx.showToast({
         title: data.message,
-        duration:2000,
         image: '/images/icon/x.png'
       })
     } else {

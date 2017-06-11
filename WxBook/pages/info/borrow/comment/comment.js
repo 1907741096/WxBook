@@ -5,8 +5,7 @@ Page({
   data: {
     bookid:'',
     userid:'',
-    book:{},
-    color:'limegreen'
+    book:{}
   },
   onLoad: function (options) {
     var bookid=options.bookid;
@@ -27,20 +26,7 @@ Page({
     })
   },
   onslider:function(event){
-    var value=event.detail.value;
-    if(value>=8){
-      this.setData({
-        color:'limegreen'
-      })
-    }else if(value<=3){
-      this.setData({
-        color: 'red'
-      })
-    }else{
-      this.setData({
-        color: '#FFD700'
-      })
-    }
+    
   },
   addcomment:function(event){
     var data=event.detail.value;

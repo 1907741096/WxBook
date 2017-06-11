@@ -145,15 +145,7 @@ Page({
     })
   },
   getcode: function () {
-    if(wx.getStorageSync('time')){
-      if (Math.floor((new Date()).valueOf() / 1000)-wx.getStorageSync('time')>60){
-        wx.setStorageSync('time', Math.floor((new Date()).valueOf() / 1000));
-      }
-    }else{
-      wx.setStorageSync('time', Math.floor((new Date()).valueOf()/1000));
-    }
-    var id = this.data.user['id'] + wx.getStorageSync('time');
-    var url = app.globalData.http + "wxbook/api.php?c=Weixin&a=getQrCode&id=" + id;
+    var url = app.globalData.http + "wxbook/api.php?c=Weixin&a=getQrCode&id=" + this.data.user['id'];
     util.http(url, this.showcode, "GET");
   },
   showcode: function (data) {

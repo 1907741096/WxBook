@@ -36,7 +36,7 @@ page{
   float: left;
   font-size: 28rpx;
   margin-left: 20rpx;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
 }
 .message-time{
   float: right;
@@ -45,7 +45,6 @@ page{
   color: #777;
 }
 .message-content{
-  margin-top: 20rpx;
   margin-left: 20rpx;
   font-size: 26rpx;
   color: #777;
