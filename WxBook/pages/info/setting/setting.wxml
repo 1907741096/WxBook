@@ -6,15 +6,23 @@
   <view class="setting-one" wx:if="{{p}}">
     <radio-group class="radio-group" bindchange="radioChange">
       <view class="setting-one">
-         <radio value="86400" checked="{{time==86400}}" color="#666"/>
+         <radio value="3600" checked="{{pushtime==3600}}" color="#666"/>
+         <view class="time">一小时</view>
+      </view>
+      <view class="setting-one">
+         <radio value="43200" checked="{{pushtime==43200}}" color="#666"/>
+         <view class="time">半天</view>
+      </view>
+      <view class="setting-one">
+         <radio value="86400" checked="{{pushtime==86400}}" color="#666"/>
          <view class="time">一天</view>
       </view>
       <view class="setting-one">
-         <radio value="259200" checked="{{time==259200}}" color="#666"/>
+         <radio value="259200" checked="{{pushtime==259200}}" color="#666"/>
          <view class="time">三天</view>
       </view>
       <view class="setting-one">
-         <radio value="604800" checked="{{time==604800}}" color="#666"/>
+         <radio value="604800" checked="{{pushtime==604800}}" color="#666"/>
          <view class="time">七天</view>
       </view>
     </radio-group>

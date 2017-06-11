@@ -63,8 +63,8 @@ Page({
         }
     },
     ontagTap:function(event){
-      var url = 'Book'
       var tag = event.target.dataset.tag;
+      var url = 'Book'
       wx.navigateTo({
         url: '../more/more?url=' + url + '&tag=' + tag
       });
@@ -161,5 +161,10 @@ Page({
       this.setData({
         hotbook: books
       });
+    },
+    gomore:function(){
+      wx.switchTab({
+        url: '../search/search',
+      })
     }
 })

@@ -1,0 +1,41 @@
+.order{
+  width: 710rpx;
+  height: 300rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #ddd;
+}
+image{
+  float: left;
+  width: 200rpx;
+  height:260rpx;
+  margin-top: 20rpx;
+}
+.order-right{
+  float: right;
+  width: 490rpx;
+  height:260rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title{
+  font-size: 30rpx;
+}
+.price{
+  font-size: 28rpx;
+}
+.time{
+  font-size: 28rpx;
+}
+.pay{
+  width: 120rpx;
+  height: 50rpx;
+  color: #FFF;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  letter-spacing: 2rpx;
+  background-color: #ed424f;
+}

@@ -7,7 +7,7 @@ Page({
     borrow:{}
   },
   onLoad: function () {
-    var url=app.globalData.http+'wxbook/api.php?c=borrow&a=getBorrowByUserId&userid='+wx.getStorageSync('id');
+    var url = app.globalData.http +'wxbook/api.php?c=borrow&a=getAllBorrowByUserId&userid='+wx.getStorageSync('id');
     util.http(url,this.processData,'GET');
   },
   processData:function(data){

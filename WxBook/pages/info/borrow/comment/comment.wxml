@@ -23,7 +23,7 @@
   <form bindsubmit="addcomment">
     <view class="status">
       <text style="text-align:bottom;">评分:</text>
-      <slider bindchange="" min="0" max="10" show-value value="10" activeColor="#333" bindchange="onslider" name="rating"/>
+      <slider bindchange="" min="0" max="10" show-value value="10" activeColor="{{color}}" bindchange="onslider" name="rating"/>
     </view>
     <textarea class="content" placeholder="请输入评论内容（不超过140字）" name="content"/>
     <button class="sub" formType="submit">确定</button>
