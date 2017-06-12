@@ -32,4 +32,25 @@ Page({
       url: "../../detail/detail?id=" + id,
     })
   },
+  checkpay:function (event){
+    var id=event.currentTarget.dataset.id;
+    var url=app.globalData.http+'wxbook/api.php?c=order&a=checkorder&id='+id;
+    util.http(url,this.processcheck,'GET');
+  },
+  processcheck:function(data){
+    if(data.status==0){
+      wx.showToast({
+        title: data.message,
+        image:'/images/icon/x.png'
+      })
+    }else{
+      // wx.requestPayment({
+      //   timeStamp: Math.floor(new Date().valueOf() / 1000),
+      //   nonceStr: '',
+      //   package: '',
+      //   signType: 'MD5',
+      //   paySign: '',
+      // })
+    }
+  }
 })

@@ -5,7 +5,7 @@
       <view class="title">{{order.title}}</view>
       <view class="price">￥{{order.price}}</view>
       <view class="time">支付时限还剩 <text style="color:dodgerblue;">{{order.time}}</text> 分钟</view>
-      <view class="pay">支付</view>
+      <view class="pay" catchtap="checkpay" data-id="{{order.id}}">支付</view>
     </view>
   </view>
 </block>
